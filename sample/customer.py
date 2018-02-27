@@ -32,3 +32,38 @@ class Customer:
         self.__subAccounts = {}
         self.__requests = []
         self.__hist = []
+
+    def getValue(self):
+        """
+        Retrieves value held within bank
+        """
+
+        return self.__value
+
+    def getOwner(self):
+        """
+        Retrieves owner of the bank
+        """
+
+        return self.__owner
+
+    def getUsers(self):
+        """
+        Retrieves priveledged users of the bank
+        """
+
+        return self.__users
+
+    def getSubaccounts(self):
+        """
+        Retrives accounts owned by this account
+        """
+
+        return self.__subAccounts
+
+    def getHistory(self):
+        """
+        Retrieves history of this account
+        """
+
+        return self.__hist
