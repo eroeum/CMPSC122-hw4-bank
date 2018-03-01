@@ -119,3 +119,15 @@ class Password:
             self.__approvedUsers[username] = password.strip()
 
         return 1
+
+    def hashUsername(self, userID):
+        """
+        Hashes provided username for hased user id
+
+        :type userID: string
+        :param userid: User ID that user has chosen
+        """
+
+        encodedUserID = (userID + self.__salt).encode('utf-8')
+        hashed_userid = hasher.sha512(encodedUserID).hexdigest()
+        return hashed_userid
