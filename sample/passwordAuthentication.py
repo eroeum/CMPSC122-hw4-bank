@@ -43,3 +43,30 @@ class Password:
         else:
             # Returns 0 if the password has not been authenticated
             return 0
+
+    def addAutheticatedUser(self,userid,password):
+        """
+        Adds autheticated user using UUID and SHA512 password hashing
+
+        :type userid: string
+        :param userid: User ID that user has chosen
+
+        :type password: string
+        :param password: Password to attempt to authenticate userid
+        """
+
+        # Encodes userid and password into utf-8 format to be hashed
+        encodedUserID = (userid + self.__salt).encode('utf-8')
+        encodedPassword = (password + self.__salt).encode('utf-8')
+
+        # Hash (1-way) userid using SHA512
+        hashed_userid = hasher.sha512(encodedUserID).hexdigest()
+
+        # Detects if userid is already regestered
+        if(hashed_userid in self.__approvedUsers):
+            return 0
+
+        # Hash (1-way) password using SHA512
+        hashed_password = hasher.sha512(encodedPassword).hexdigest()
+        self.__approvedUsers[hashed_userid] = hashed_password
+        return 1
