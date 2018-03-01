@@ -90,3 +90,32 @@ class Password:
         for user in self.__approvedUsers:
             passFile.write("{}:{}\n".\
                            format(user, self.__approvedUsers[user]))
+
+    def readEncrypted(self, filename, dest='./'):
+        """
+        Imports all usernames and passwords from a txt file
+        File must be formatted using _writeEncrypted function
+        NOTE: All previous passwords will be deleted and replaced
+
+        :type filename: string
+        :param filename: filename of txt file
+
+        :type dest: string
+        :param dest: location to write txt file
+        """
+
+        # Read Salt from first line
+        passFile = open(filename,'r')
+        self.__salt = passFile.readline().strip()
+
+        # Resets approvedUsers
+        self.__approvedUsers = {}
+
+        # Adds approvedUsers line vy line
+        for line in passFile:
+            userPass = line.split(':')
+            username = userPass[0].strip()
+            password = userPass[1].strip()
+            self.__approvedUsers[username] = password.strip()
+
+        return 1
