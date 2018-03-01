@@ -70,3 +70,23 @@ class Password:
         hashed_password = hasher.sha512(encodedPassword).hexdigest()
         self.__approvedUsers[hashed_userid] = hashed_password
         return 1
+
+    def writeEncrypted(self, filename, dest='./'):
+        """
+        Writes all usernames and passwords to a txt file
+
+        :type filename: string
+        :param filename: filename of txt file
+
+        :type dest: string
+        :param dest: location to write txt file
+        """
+
+        # Writes file with salt
+        passFile = open(filename,'w')
+        passFile.write("{}\n".format(self.__salt))
+
+        # Writes file of encrypted data in format: <userid>:<password>
+        for user in self.__approvedUsers:
+            passFile.write("{}:{}\n".\
+                           format(user, self.__approvedUsers[user]))
