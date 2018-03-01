@@ -67,3 +67,14 @@ class Customer:
         """
 
         return self.__hist
+
+    def _deltaValue(self, delta):
+        """
+        Adds or removes funds from this bank
+
+        :type delta: float
+        :param delta: Amount to add to funds
+        """
+
+        self.__value += delta
+        return 1
