@@ -22,6 +22,7 @@ def help():
     func['balance'] = 'Displays balance in your account'
     func['deposit'] = 'Deposits money into to your account'
     func['withdrawal'] = 'Withdrawals money from your account'
+    func['whoami'] = 'Display your ID'
 
     # Sorts commands alphabetically
     cmds = sorted(func)
@@ -42,15 +43,30 @@ def balance(person):
 def deposit(person, value_to_add):
     """
     Deposits value into the account
+
+    :type value_to_add: float
+    :param value_to_add: Value to be added in funds
     """
 
-    person._deltaValue(value_to_add)
+    person.requestDelta(value_to_add)
     return
 
 def withdrawal(person, value_to_deduct):
     """
     Withdrawals value from the account
+
+    :type value_to_deduct: float
+    :param value_to_deduct: Value to be withdrawled in funds
     """
 
-    person._deltaValue(-1 * value_to_deduct)
+    person.requestDelta(-1 * deltaValue)
+    return
+
+def whoami(person):
+    """
+    Return the owner's ID
+
+    """
+
+    print(person.getOwner())
     return

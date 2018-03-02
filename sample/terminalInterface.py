@@ -84,8 +84,11 @@ def displayInterface():
                         break
 
                     # Help function
-                    elif(func[:4] == 'help'):
+                    elif(func[:4] == 'help' or func[:4] == 'quit'):
                         tf.help()
+
+                    elif(func[:6] == 'whoami'):
+                        tf.whoami(customer)
 
                     # Balance function
                     elif(func[:7] == 'balance'):
