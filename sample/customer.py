@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Customer:
     """
     Represents a user with low-level priveledges
@@ -78,3 +80,22 @@ class Customer:
 
         self.__value += delta
         return 1
+
+    def requestDelta(self, delta):
+        """
+        Rquests the withdrawl or deposit into customer's account
+
+        :type delta: float
+        :param delta: Amount to request funds
+        """
+
+        self.__requests.append("$" + str(delta) + " - " +
+                               str(datetime.now().replace(microsecond=0
+                               )))
+        print(self.__requests)
+        return 1
+
+
+if __name__ == '__main__':
+    x = Customer(300, "123")
+    x.requestDelta(50.00)
