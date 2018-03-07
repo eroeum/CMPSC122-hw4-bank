@@ -96,9 +96,10 @@ class Customer:
         :param delta: Amount to request funds
         """
 
-        self.__requests.append("$" + str(delta) + " - " +
-                               str(datetime.now().replace(microsecond=0
-                               )))
+        self.__requests.append('{}~{}:Add Val:{}'.format(
+                               datetime.now().replace(microsecond = 0),
+                               self.__owner,
+                               str(delta)))
         return 1
 
 
