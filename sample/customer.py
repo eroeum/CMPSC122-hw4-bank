@@ -92,7 +92,6 @@ class Customer:
         self.__requests.append("$" + str(delta) + " - " +
                                str(datetime.now().replace(microsecond=0
                                )))
-        print(self.__requests)
         return 1
 
 
