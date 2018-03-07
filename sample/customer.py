@@ -70,6 +70,13 @@ class Customer:
 
         return self.__hist
 
+    def getRequests(self):
+        """
+        Retrieves request of account
+        """
+
+        return self.__requests
+
     def _deltaValue(self, delta):
         """
         Adds or removes funds from this bank
