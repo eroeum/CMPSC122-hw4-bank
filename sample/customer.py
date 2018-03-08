@@ -124,7 +124,3 @@ class Customer:
 
         self.__hist.append(event)
         return 1
-
-if __name__ == '__main__':
-    x = Customer(300, "123")
-    x.requestDelta(50.00)
