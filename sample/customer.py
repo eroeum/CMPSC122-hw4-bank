@@ -102,6 +102,16 @@ class Customer:
                                str(delta)))
         return 1
 
+    def removeRequest(self, reqNum):
+        """
+        Removes request from request list
+
+        :type reqNum: int
+        :param reqNum: Index of request
+        """
+
+        self.__requests.pop(reqNum)
+        return 1
 
 if __name__ == '__main__':
     x = Customer(300, "123")
