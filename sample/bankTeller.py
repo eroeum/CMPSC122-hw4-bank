@@ -1,3 +1,4 @@
+from customer import Customer
 class BankTeller(Customer):
     """
     Represents a user with mid-level priveledges
@@ -26,3 +27,30 @@ class BankTeller(Customer):
         """
 
         return customer.getRequests()
+
+    def acceptRequest(self, customer, reqNum):
+        """
+        Accepts a request for a customer
+
+        :type customer: Customer
+        :param customer: Customer with the request
+
+        :type reqNum: int
+        :param reqNum: Request number that wishes to be resolved
+        """
+
+        # All requests of customer
+        requests = BankTeller.viewRequests(self, customer)
+
+        # Checks if the reqNum exists
+        if(reqNum < len(requests) and int(reqNum) == reqNum):
+
+            # Add/Remove value to balnace
+            if(requests[reqNum][149:156] == 'Add Val'):
+                customer._deltaValue(float(requests[reqNum][157:]))
+                customer.addHistory(requests[reqNum])
+                customer.removeRequest(reqNum)
+
+            return 1
+        else:
+            return 0
