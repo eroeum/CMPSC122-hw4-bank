@@ -14,5 +14,15 @@ class BankTeller(Customer):
         :param customers: all customers that can be accessed
         """
 
-        Customer.__init__(0 , userID)
+        Customer.__init__(self, 0 , userID)
         self.__customers = customers
+
+    def viewRequests(self, customer):
+        """
+        Retrieves the requests held within the customer
+
+        :type customer: Customer
+        :param customer: Customer with requests
+        """
+
+        return customer.getRequests()

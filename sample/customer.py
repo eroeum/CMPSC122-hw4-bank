@@ -96,12 +96,31 @@ class Customer:
         :param delta: Amount to request funds
         """
 
-        self.__requests.append("$" + str(delta) + " - " +
-                               str(datetime.now().replace(microsecond=0
-                               )))
+        self.__requests.append('{}~{}:Add Val:{}'.format(
+                               datetime.now().replace(microsecond = 0),
+                               self.__owner,
+                               str(delta)))
+        return 1
+
+    def removeRequest(self, reqNum):
+        """
+        Removes request from request list
+
+        :type reqNum: int
+        :param reqNum: Index of request
+        """
+
+        self.__requests.pop(reqNum)
         return 1
 
 
-if __name__ == '__main__':
-    x = Customer(300, "123")
-    x.requestDelta(50.00)
+    def addHistory(self, event):
+        """
+        Adds an event to the history
+
+        :type event: string
+        :param event: Event that has take place (only accepted requests)
+        """
+
+        self.__hist.append(event)
+        return 1
