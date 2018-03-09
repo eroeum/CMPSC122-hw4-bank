@@ -26,3 +26,10 @@ class Assistant(BankTeller):
         """
 
         return self.__customers
+
+    def viewBankTellers(self):
+        """
+        Returns the bank tellers under this account
+        """
+
+        return self.__bankTellers
