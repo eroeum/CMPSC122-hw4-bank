@@ -23,6 +23,7 @@ def help():
     func['deposit'] = 'Deposits money into to your account'
     func['withdrawal'] = 'Withdrawals money from your account'
     func['whoami'] = 'Display your ID'
+    func['make'] = 'Creates a new account'
 
     # Sorts commands alphabetically
     cmds = sorted(func)
@@ -70,3 +71,20 @@ def whoami(person):
 
     print(person.getOwner())
     return
+
+def make(genesis, accountType, userID):
+    """
+    Create an account
+
+    :type genesis: Customer
+    :param genesis: Original account
+
+    :type accountType: string
+    :param accountType: type of account
+
+    :type userID: string
+    :param userID: user id of the account
+    """
+
+    if(accountType == 'assistant'):
+        genesis.createAssistant(userID, [], [])

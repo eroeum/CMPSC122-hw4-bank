@@ -37,10 +37,7 @@ def displayInterface():
         password = input('Password: ')
     users.addAutheticatedUser(username, password)
     userID = users.hashUsername(username)
-    managers[userID] = Manager(userID, \
-                               customers,\
-                               bankTellers, \
-                               assistants)
+    managers[userID] = Manager(userID, [], [], [])
 
     # Performs until user exits
     while(True):
@@ -94,18 +91,22 @@ def displayInterface():
                 # Checks if user is a customer
                 if(userID in customers):
                     user = customers[userID]
+                    accountType = 'Customer'
 
                 # Checks if user is a bankTeller
                 elif(userID in bankTellers):
                     user = bankTellers[userID]
+                    accountType = 'Bank Teller'
 
                 # Checks if user is a assistant
                 elif(userID in assistants):
                     user = assistants[userID]
+                    accountType = 'Assistant'
 
                 # Checks if user is a mangager
                 elif(userID in managers):
                     user = managers[userID]
+                    accountType = 'Manager'
 
 
                 print('\nWelcome! for help please type "help"')
@@ -161,12 +162,29 @@ def displayInterface():
                                   '[VALUE TO WITHDRAWAL]\n' + \
                                   'For help, type "help withdrawal"')
 
+                    # Make function
+                    elif(func[:4] == 'make'):
+                        val = func.split()
+                        if(len(val) == 4):
+
+                            # Make assistant
+                            if(val[1] == 'assistant' and \
+                               accountType == 'Manager'):
+                                accountID = users.hashUsername(val[2])
+                                password = users.hashUsername(val[3])
+                                if((users.addAutheticatedUser( \
+                                       accountID, password)) and \
+                                       not(accountID == 'new') and \
+                                       not(accountID == 'exit')):
+                                    tf.make(user, 'assistant',
+                                           accountID)
+                                else:
+                                    print('Error creating account')
+
                     # Unrecognized command
                     else:
                         print('Command unrecognized')
                         print('For help, please enter "help"')
-
-
 
 if __name__ == '__main__':
     displayInterface()
