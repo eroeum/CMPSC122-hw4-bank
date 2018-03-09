@@ -30,3 +30,22 @@ class Manager(Assistant):
         """
 
         return self.__assistants
+
+    def createAssistant(self, userID, customers, bankTellers):
+        """
+        Creates an assistant object
+
+        :type userID: string
+        :param userID: the userID of the assistant
+
+        :type customers: list
+        :param customers: all customers that assistant can access
+
+        :type bankTellers: list
+        :param bankTellers: all bank tellers that assistant can access
+        """
+
+        assistant = Assistant(userID, customers, bankTellers)
+        self.__assistants.append(assistant)
+        
+        return 1
