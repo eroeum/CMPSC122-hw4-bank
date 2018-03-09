@@ -19,3 +19,10 @@ class Assistant(BankTeller):
 
         BankTeller.__init__(self, userID, customers)
         self.__bankTellers = bankTellers
+
+    def viewCustomers(self):
+        """
+        Returns the customers under this account
+        """
+
+        return self.__customers
