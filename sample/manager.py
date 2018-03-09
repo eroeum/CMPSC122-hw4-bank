@@ -22,3 +22,10 @@ class Manager(Assistant):
 
         Assistant.__init__(self, userID, customers, bankTellers)
         self.__assistants = assistants
+
+    def viewAssistants(self):
+        """
+        Returns the assistants under this class
+        """
+
+        return self.__assistants
