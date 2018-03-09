@@ -1,3 +1,5 @@
+from bankTeller import BankTeller
+
 class Assistant(BankTeller):
     """
     Represents a user with mid-level priveledges

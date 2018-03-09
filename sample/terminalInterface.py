@@ -1,4 +1,5 @@
 from customer import Customer
+from manager import Manager
 from passwordAuthentication import Password
 import terminalFunctions as tf
 
@@ -16,10 +17,30 @@ def displayInterface():
     """
 
     customers = {}
+    bankTellers = {}
+    assistants = {}
+    managers = {}
     users = Password({})
 
     # Displays welcome message
     print("Welcome to banking inteface: v" + version)
+
+    # Initiliaze genesis account
+    print('To initialize the bank, a manager must be created.')
+    print('Please choose a username and password:')
+    username = input('Username: ')
+    password = input('Password: ')
+    while(username == 'new' or username == 'exit'):
+        print('Error creating your account\n' + \
+              'Please note that the username cannot be "new" or "exit"')
+        username = input('Username: ')
+        password = input('Password: ')
+    users.addAutheticatedUser(username, password)
+    userID = users.hashUsername(username)
+    managers[userID] = Manager(userID, \
+                               customers,\
+                               bankTellers, \
+                               assistants)
 
     # Performs until user exits
     while(True):
@@ -69,7 +90,24 @@ def displayInterface():
                 # Gets userID info
                 userID = users.hashUsername(username)
                 userID_8 = userID[:8]
-                customer = customers[userID]
+
+                # Checks if user is a customer
+                if(userID in customers):
+                    user = customers[userID]
+
+                # Checks if user is a bankTeller
+                elif(userID in bankTellers):
+                    user = bankTellers[userID]
+
+                # Checks if user is a assistant
+                elif(userID in assistants):
+                    user = assistants[userID]
+
+                # Checks if user is a mangager
+                elif(userID in managers):
+                    user = managers[userID]
+
+
                 print('\nWelcome! for help please type "help"')
 
                 # Runs until user logs out
@@ -88,18 +126,18 @@ def displayInterface():
                         tf.help()
 
                     elif(func[:6] == 'whoami'):
-                        tf.whoami(customer)
+                        tf.whoami(user)
 
                     # Balance function
                     elif(func[:7] == 'balance'):
-                        tf.balance(customer)
+                        tf.balance(user)
 
                     # Deposit function
                     elif(func[:7] == 'deposit'):
                         valList = func.split()
                         if(len(valList) == 2):
                             try:
-                                tf.deposit(customer, float(valList[1]))
+                                tf.deposit(user, float(valList[1]))
                             except ValueError:
                                 print('Invalid Deposit amount')
                         else:
@@ -112,7 +150,7 @@ def displayInterface():
                         valList= func.split()
                         if(len(valList) == 2):
                             try:
-                                tf.withdrawal(customer, \
+                                tf.withdrawal(user, \
                                               float(valList[1]))
                             except ValueError:
                                 print('Invalid witdrawal amount')

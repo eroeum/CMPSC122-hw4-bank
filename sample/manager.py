@@ -1,3 +1,4 @@
+from assistant import Assistant
 class Manager(Assistant):
     """
     Represents a user with high-level priveledges
