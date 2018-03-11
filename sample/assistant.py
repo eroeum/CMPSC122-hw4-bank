@@ -35,3 +35,22 @@ class Assistant(BankTeller):
         """
 
         return self.__bankTellers
+
+    def createBankTeller(self, userID, customers, bankTellers):
+        """
+        Creates a Bank Teller under this account
+
+        :type userID: string
+        :param userID: the userID of the assistant
+
+        :type customers: list
+        :param customers: all customers that assitant can access
+
+        :type bankTellers: list
+        :param bankTellers: all bank tellers that assistant can access
+        """
+
+        bankTeller = BankTeller(userID, customers, bankTellers)
+        self.__banTellers.append(bankTeller)
+
+        return 1

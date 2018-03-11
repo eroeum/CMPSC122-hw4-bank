@@ -86,8 +86,10 @@ def make(genesis, accountType, userID):
     :param userID: user id of the account
     """
 
-    if(accountType == 'assistant'):
+    if(accountType == 'Assistant'):
         genesis.createAssistant(userID, [], [])
+    elif(accountType == 'BankTeller'):
+        genesis.createBankTeller(userID, [], [])
 
 def ls(accountType, account):
     """

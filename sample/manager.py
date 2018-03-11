@@ -47,5 +47,5 @@ class Manager(Assistant):
 
         assistant = Assistant(userID, customers, bankTellers)
         self.__assistants.append(assistant)
-        
+
         return 1
