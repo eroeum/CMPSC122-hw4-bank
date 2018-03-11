@@ -88,3 +88,29 @@ def make(genesis, accountType, userID):
 
     if(accountType == 'assistant'):
         genesis.createAssistant(userID, [], [])
+
+def ls(accountType, account):
+    """
+    Lists all accounts accessible
+
+    :type accountType: string
+    :param accountType: type of account
+
+    :type account: Customer
+    :param account: The account that is being inspected
+    """
+
+    if(accountType in ['Bank Teller', 'Assistant', 'Manager']):
+        print('Customers:')
+        # TODO: Add view customers
+
+    if(accountType in ['Assistant', 'Manager']):
+        print('\nBank Tellers:')
+        for bankteller in account.viewBankTellers():
+            print(bankTeller)
+
+    if(accountType in ['Manager']):
+        print('\nAssistants:')
+        for assistant in account.viewAssistants():
+            print(len(account.viewAssistants()))
+            print(type(whoami(assistant)))

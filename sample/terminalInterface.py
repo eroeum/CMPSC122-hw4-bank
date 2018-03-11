@@ -181,6 +181,11 @@ def displayInterface():
                                 else:
                                     print('Error creating account')
 
+                    # List function
+                    elif(func[:2] == 'ls'):
+                        tf.ls(accountType, user)
+
+
                     # Unrecognized command
                     else:
                         print('Command unrecognized')
