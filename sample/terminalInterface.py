@@ -173,9 +173,10 @@ def displayInterface():
                                 accountID = users.hashUsername(val[2])
                                 password = users.hashUsername(val[3])
                                 if((users.addAutheticatedUser( \
-                                       accountID, password)) and \
+                                       val[2], val[3])) and \
                                        not(accountID == 'new') and \
                                        not(accountID == 'exit')):
+                                    print("YES")
                                     tf.make(user, 'assistant',
                                            accountID)
                                 else:
