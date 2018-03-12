@@ -122,5 +122,11 @@ def ls(accountType, account):
             if(not(assistant is None)):
                 print(assistant.getOwner()[:8])
 
-def clear():
-    os.system('clear')
+def clear(platf):
+    if(platf == 'Windows'):
+        os.system('cls')
+    else:
+        os.system('clear')
+
+def cls():
+    os.system('cls')

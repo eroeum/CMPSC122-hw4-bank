@@ -193,7 +193,10 @@ def displayInterface():
 
                     # Clear screen
                     elif(func[:5] == 'clear'):
-                        tf.clear()
+                        if(func[6:8] == '-w'):
+                            tf.clear('Windows')
+                        else:
+                            tf.clear('Unix')
 
                     # Unrecognized command
                     else:
