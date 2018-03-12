@@ -108,6 +108,8 @@ def displayInterface():
                     user = managers[userID]
                     accountType = 'Manager'
 
+                print(user)
+                print(accountType)
 
                 print('\nWelcome! for help please type "help"')
 
@@ -115,7 +117,8 @@ def displayInterface():
                 while(True):
 
                     # Asks user for input terminal style
-                    func = input('{} >>'.format(userID_8))
+                    func = input('{} ({})>>'.format(userID_8, \
+                                                    accountType))
 
                     # Log-out function
                     if(func == 'exit'):
@@ -173,13 +176,14 @@ def displayInterface():
                                 accountID = users.hashUsername(val[2])
                                 password = users.hashUsername(val[3])
 
-
                                 if((users.addAutheticatedUser( \
                                        val[2], val[3])) and \
                                        not(accountID == 'new') and \
                                        not(accountID == 'exit')):
-                                    tf.make(user, 'assistant',
-                                           accountID)
+                                    assistants = tf.make(user, \
+                                                         'assistant', \
+                                                         accountID, \
+                                                         assistants)
                                 else:
                                     print('Error creating account')
 

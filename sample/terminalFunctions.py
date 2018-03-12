@@ -72,7 +72,7 @@ def whoami(person):
     print(person.getOwner())
     return
 
-def make(genesis, accountType, userID):
+def make(genesis, accountType, userID, users):
     """
     Create an account
 
@@ -87,9 +87,12 @@ def make(genesis, accountType, userID):
     """
 
     if(accountType == 'assistant'):
-        genesis.createAssistant(userID, [], [])
+        ret0 = genesis.createAssistant(userID, [], [])
     elif(accountType == 'teller'):
-        genesis.createBankTeller(userID, [], [])
+        ret0 = genesis.createBankTeller(userID, [], [])
+
+    users[userID] = ret0
+    return users
 
 def ls(accountType, account):
     """
