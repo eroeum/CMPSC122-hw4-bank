@@ -86,9 +86,9 @@ def make(genesis, accountType, userID):
     :param userID: user id of the account
     """
 
-    if(accountType == 'Assistant'):
+    if(accountType == 'assistant'):
         genesis.createAssistant(userID, [], [])
-    elif(accountType == 'BankTeller'):
+    elif(accountType == 'teller'):
         genesis.createBankTeller(userID, [], [])
 
 def ls(accountType, account):
@@ -109,10 +109,11 @@ def ls(accountType, account):
     if(accountType in ['Assistant', 'Manager']):
         print('\nBank Tellers:')
         for bankteller in account.viewBankTellers():
-            print(bankTeller)
+            if(not(bankteller is None)):
+                print(bankteller.getOwner()[:8])
 
     if(accountType in ['Manager']):
         print('\nAssistants:')
         for assistant in account.viewAssistants():
-            print(len(account.viewAssistants()))
-            print(type(whoami(assistant)))
+            if(not(assistant is None)):
+                print(assistant.getOwner()[:8])
