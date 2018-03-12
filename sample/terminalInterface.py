@@ -108,9 +108,6 @@ def displayInterface():
                     user = managers[userID]
                     accountType = 'Manager'
 
-                print(user)
-                print(accountType)
-
                 print('\nWelcome! for help please type "help"')
 
                 # Runs until user logs out
@@ -197,7 +194,7 @@ def displayInterface():
                     # Clear screen
                     elif(func[:5] == 'clear'):
                         tf.clear()
-                        
+
                     # Unrecognized command
                     else:
                         print('Command unrecognized')
