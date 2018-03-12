@@ -1,4 +1,5 @@
 from customer import Customer
+import os
 
 def exit():
     """
@@ -120,3 +121,6 @@ def ls(accountType, account):
         for assistant in account.viewAssistants():
             if(not(assistant is None)):
                 print(assistant.getOwner()[:8])
+
+def clear():
+    os.system('clear')

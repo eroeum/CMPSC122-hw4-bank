@@ -194,7 +194,10 @@ def displayInterface():
                     elif(func[:2] == 'ls'):
                         tf.ls(accountType, user)
 
-
+                    # Clear screen
+                    elif(func[:5] == 'clear'):
+                        tf.clear()
+                        
                     # Unrecognized command
                     else:
                         print('Command unrecognized')
