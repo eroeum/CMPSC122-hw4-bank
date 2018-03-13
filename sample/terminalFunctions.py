@@ -137,3 +137,20 @@ def clear(platf):
         os.system('cls')
     else:
         os.system('clear')
+
+def requests(user, customer):
+    """
+    Lists all requests of the customer
+
+    :type user: class
+    :param user: The current user
+
+    :type customer: customer
+    :param customer: Customer that will be viewed
+    """
+
+    requests = user.viewRequests(customer)
+    requestNum = 1
+    for request in requests:
+        print('#{}|{}'.format(requestNum,request))
+        requestNum += 1

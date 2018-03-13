@@ -98,7 +98,7 @@ class Customer:
 
         self.__requests.append('{}~{}:Add Val:{}'.format(
                                datetime.now().replace(microsecond = 0),
-                               self.__owner,
+                               self.__owner[:8],
                                str(delta)))
         return 1
 

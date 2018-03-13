@@ -216,6 +216,17 @@ def displayInterface():
                         else:
                             tf.clear('Unix')
 
+                    # View a customer's requests
+                    elif(func[:8] == 'requests'):
+                        val = func.split()
+                        indv = val[1]
+                        for customer in customers:
+                            if(indv in customer[:8]):
+                                indv = customers[customer]
+                                tf.requests(user, indv)
+                                break
+
+
                     # Unrecognized command
                     else:
                         print('Command unrecognized')
