@@ -90,7 +90,7 @@ def make(genesis, accountType, userID, users):
     if(accountType == 'assistant'):
         ret0 = genesis.createAssistant(userID, [], [])
     elif(accountType == 'teller'):
-        ret0 = genesis.createBankTeller(userID, [], [])
+        ret0 = genesis.createBankTeller(userID, [])
 
     users[userID] = ret0
     return users

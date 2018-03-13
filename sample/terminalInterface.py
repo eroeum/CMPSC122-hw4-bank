@@ -184,6 +184,24 @@ def displayInterface():
                                 else:
                                     print('Error creating account')
 
+                            # Make Bank Teller
+                            elif(val[1] == 'teller' and \
+                                 accountType in ['Manager',
+                                                 'Assistant']):
+                                accountID = users.hashUsername(val[2])
+                                password = users.hashUsername(val[3])
+
+                                if((users.addAutheticatedUser( \
+                                       val[2], val[3])) and \
+                                       not(accountID == 'new') and \
+                                       not(accountID == 'exit')):
+                                    bankTellers = tf.make(user, \
+                                                          'teller', \
+                                                          accountID, \
+                                                          bankTellers)
+                                else:
+                                    print('Error creating account')
+
                             else:
                                 print("Invalid Input")
 
