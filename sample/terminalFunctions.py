@@ -137,6 +137,3 @@ def clear(platf):
         os.system('cls')
     else:
         os.system('clear')
-
-def cls():
-    os.system('cls')
