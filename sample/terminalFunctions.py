@@ -106,18 +106,21 @@ def ls(accountType, account, customers):
     :param account: The account that is being inspected
     """
 
+    # View Customers
     if(accountType in ['Bank Teller', 'Assistant', 'Manager']):
         print('\nCustomers:')
         for customer in customers:
             if(not(customer is None)):
                 print(customer[:8])
 
+    # View Bank Tellers
     if(accountType in ['Assistant', 'Manager']):
         print('\nBank Tellers:')
         for bankteller in account.viewBankTellers():
             if(not(bankteller is None)):
                 print(bankteller.getOwner()[:8])
 
+    # View Assistants
     if(accountType in ['Manager']):
         print('\nAssistants:')
         for assistant in account.viewAssistants():
