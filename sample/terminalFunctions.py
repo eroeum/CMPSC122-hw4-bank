@@ -5,7 +5,10 @@ def exit():
     """
     Exits the program
     This is a "fake" function that only confirms exit
+    Clears screen after exit
     """
+
+    clear('Unix')
 
     return
 
