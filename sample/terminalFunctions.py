@@ -28,6 +28,7 @@ def help():
     func['withdrawal'] = 'Withdrawals money from your account'
     func['whoami'] = 'Display your ID'
     func['make'] = 'Creates a new account'
+    func['clear'] = 'Clears the screen'
 
     # Sorts commands alphabetically
     cmds = sorted(func)
