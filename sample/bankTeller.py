@@ -18,6 +18,13 @@ class BankTeller(Customer):
         Customer.__init__(self, 0 , userID)
         self.__customers = customers
 
+    def viewCustomers(self):
+        """
+        Returns the customers under this account
+        """
+
+        return self.__customers
+
     def viewRequests(self, customer):
         """
         Retrieves the requests held within the customer

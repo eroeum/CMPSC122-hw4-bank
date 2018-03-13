@@ -95,7 +95,7 @@ def make(genesis, accountType, userID, users):
     users[userID] = ret0
     return users
 
-def ls(accountType, account):
+def ls(accountType, account, customers):
     """
     Lists all accounts accessible
 
@@ -107,8 +107,10 @@ def ls(accountType, account):
     """
 
     if(accountType in ['Bank Teller', 'Assistant', 'Manager']):
-        print('Customers:')
-        # TODO: Add view customers
+        print('\nCustomers:')
+        for customer in customers:
+            if(not(customer is None)):
+                print(customer[:8])
 
     if(accountType in ['Assistant', 'Manager']):
         print('\nBank Tellers:')

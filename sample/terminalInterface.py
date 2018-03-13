@@ -207,7 +207,7 @@ def displayInterface():
 
                     # List function
                     elif(func[:2] == 'ls'):
-                        tf.ls(accountType, user)
+                        tf.ls(accountType, user, customers)
 
                     # Clear screen
                     elif(func[:5] == 'clear'):
