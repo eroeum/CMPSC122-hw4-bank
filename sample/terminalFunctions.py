@@ -29,6 +29,7 @@ def help():
     func['whoami'] = 'Display your ID'
     func['make'] = 'Creates a new account'
     func['clear'] = 'Clears the screen'
+    func['ls'] = 'Displays all muatable accounts'
 
     # Sorts commands alphabetically
     cmds = sorted(func)
