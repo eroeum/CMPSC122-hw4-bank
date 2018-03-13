@@ -66,7 +66,7 @@ def withdrawal(person, value_to_deduct):
     :param value_to_deduct: Value to be withdrawled in funds
     """
 
-    person.requestDelta(-1 * deltaValue)
+    person.requestDelta(-1 * value_to_deduct)
     return
 
 def whoami(person):
