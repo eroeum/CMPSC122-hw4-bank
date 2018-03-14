@@ -154,3 +154,19 @@ def requests(user, customer):
     for request in requests:
         print('#{}|{}'.format(requestNum,request))
         requestNum += 1
+
+def acceptRequest(user, customer, reqNum):
+    """
+    Accepts a customer's request
+
+    :type user: class
+    :param user: The current user
+
+    :type customer: customer
+    :param customer: Customer that is being accepted
+
+    :type reqNum: int
+    :param reqNum: Request number correponding to the request
+    """
+
+    user.acceptRequest(customer, int(reqNum))

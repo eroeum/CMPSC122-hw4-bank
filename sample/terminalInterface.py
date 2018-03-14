@@ -226,6 +226,17 @@ def displayInterface():
                                 tf.requests(user, indv)
                                 break
 
+                    # Acceps a customer's request
+                    elif(func[:6] == 'accept'):
+                        val = func.split()
+                        indv = val[1]
+                        reqNum = val[2]
+                        for customer in customers:
+                            if(indv in customer[:8]):
+                                indv = customers[customer]
+                                tf.acceptRequest(user, indv, reqNum)
+                                break
+
 
                     # Unrecognized command
                     else:

@@ -46,17 +46,21 @@ class BankTeller(Customer):
         :param reqNum: Request number that wishes to be resolved
         """
 
+        print("test")
+
         # All requests of customer
         requests = BankTeller.viewRequests(self, customer)
 
         # Checks if the reqNum exists
-        if(reqNum < len(requests) and int(reqNum) == reqNum):
+        if(reqNum <= len(requests) and int(reqNum) == reqNum):
 
+            request = requests[reqNum - 1].split(':')
+            if(request[-2] == 'Add Val'):
             # Add/Remove value to balnace
-            if(requests[reqNum][149:156] == 'Add Val'):
-                customer._deltaValue(float(requests[reqNum][157:]))
-                customer.addHistory(requests[reqNum])
-                customer.removeRequest(reqNum)
+            #if(requests[reqNum][149:156] == 'Add Val'):
+                customer._deltaValue(float(request[-1]))
+                customer.addHistory(requests[reqNum - 1])
+                customer.removeRequest(reqNum - 1)
 
             return 1
         else:
