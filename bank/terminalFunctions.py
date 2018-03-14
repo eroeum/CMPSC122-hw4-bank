@@ -95,7 +95,7 @@ def help(accountType, helpFunc = ''):
               '\n' +
               'NAME\n' +
               '     deposit - submits a request to add value to' +
-              ' account\n'
+              ' your account\n'
               'SYNOPSIS\n' +
               '     balance [VALUE TO ADD]\n' +
               'DESCRIPTION\n' +
@@ -104,6 +104,22 @@ def help(accountType, helpFunc = ''):
               ' desired amount\n' +
               'EXAMPLE\n' +
               '     deposit 100')
+
+    elif(helpFunc == 'withdrawal'):
+        print('WITHDRAWAL\n'+
+              '\n' +
+              'NAME\n' +
+              '     withdrawal - submits a request to deduct value' +
+              ' from your account\n'
+              'SYNOPSIS\n' +
+              '     withdrawal [VALUE TO DEDUCT]\n' +
+              'DESCRIPTION\n' +
+              '     Submits a request to deduc a value from' +
+              ' your account\n' +
+              '     The value entered after balance will be the\n' +
+              ' desired amount\n' +
+              'EXAMPLE\n' +
+              '     withdrawal 100')
 
 
     return
