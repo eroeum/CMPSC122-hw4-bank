@@ -187,6 +187,9 @@ def help(accountType, helpFunc = ''):
               'EXAMPLE\n' +
               '     accept c9575859 23')
 
+    else:
+        print('Invalid Input.  Please try again')
+
     return
 
 def balance(person):
