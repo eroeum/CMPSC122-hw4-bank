@@ -46,8 +46,6 @@ class BankTeller(Customer):
         :param reqNum: Request number that wishes to be resolved
         """
 
-        print("test")
-
         # All requests of customer
         requests = BankTeller.viewRequests(self, customer)
 

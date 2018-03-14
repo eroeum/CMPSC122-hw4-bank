@@ -253,6 +253,20 @@ def displayInterface():
                             print('"accept" takes in 2 argument\n' + \
                                   'For help enter "help accept"')
 
+                    # Get a customer's history
+                    elif(func[:7] == 'history'):
+                        val = func.split()
+                        if(len(val) == 2):
+                            indv = val[1]
+                            for customer in customers:
+                                if(indv in customer[:8]):
+                                    indv = customers[customer]
+                                    tf.history(indv)
+                                    break
+                        else:
+                            print('"history" takes in 1 argument\n' + \
+                                  'For help enter "help history"')
+
                     # Unrecognized command
                     else:
                         print('Command unrecognized')

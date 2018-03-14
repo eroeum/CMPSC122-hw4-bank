@@ -188,7 +188,7 @@ def help(accountType, helpFunc = ''):
               ' customer user ID\n' +
               '     To get the user ID, try using the "ls" command\n' +
               '     For the request number enter the request number\n' +
-              '     To get the request number, use the "REQUESTS" +
+              '     To get the request number, use the "REQUESTS"' +
               ' function and enter the number to the right of "#"\n'
               'EXAMPLE\n' +
               '     accept c9575859 23')
@@ -329,3 +329,15 @@ def acceptRequest(user, customer, reqNum):
     """
 
     user.acceptRequest(customer, int(reqNum))
+
+def history(customer):
+    """
+    Prints the history of a customer
+
+    :type customer: Class
+    :param customer: customer with desired history
+    """
+
+    hist = customer.getHistory()
+    for event in hist:
+        print(event)
