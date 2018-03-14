@@ -203,7 +203,11 @@ def displayInterface():
                                     print('Error creating account')
 
                             else:
-                                print("Invalid Input")
+                                print('Invalid Input.\n' + \
+                                      'For help, enter "help make"')
+                        else:
+                            print('Invalid Input.\n' + \
+                                  'For help, enter "help make"')
 
                     # List function
                     elif(func[:2] == 'ls'):
@@ -219,24 +223,31 @@ def displayInterface():
                     # View a customer's requests
                     elif(func[:8] == 'requests'):
                         val = func.split()
-                        indv = val[1]
-                        for customer in customers:
-                            if(indv in customer[:8]):
-                                indv = customers[customer]
-                                tf.requests(user, indv)
-                                break
+                        if(len(val) == 2):
+                            indv = val[1]
+                            for customer in customers:
+                                if(indv in customer[:8]):
+                                    indv = customers[customer]
+                                    tf.requests(user, indv)
+                                    break
+                        else:
+                            print('"requests" takes in 1 argument\n' + \
+                                  'For help enter "help requests"')
 
-                    # Acceps a customer's request
+                    # Accepts a customer's request
                     elif(func[:6] == 'accept'):
                         val = func.split()
-                        indv = val[1]
-                        reqNum = val[2]
-                        for customer in customers:
-                            if(indv in customer[:8]):
-                                indv = customers[customer]
-                                tf.acceptRequest(user, indv, reqNum)
-                                break
-
+                        if(len(val) == 3):
+                            indv = val[1]
+                            reqNum = val[2]
+                            for customer in customers:
+                                if(indv in customer[:8]):
+                                    indv = customers[customer]
+                                    tf.acceptRequest(user, indv, reqNum)
+                                    break
+                        else:
+                            print('"accept" takes in 2 argument\n' + \
+                                  'For help enter "help accept"')
 
                     # Unrecognized command
                     else:
