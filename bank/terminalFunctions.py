@@ -43,6 +43,7 @@ def help(accountType, helpFunc = ''):
             func['ls'] = 'Displays all muatable accounts'
             func['requests'] = 'Displays the requests of a customer'
             func['accept']  = 'Accepts a request of customer'
+            func['history'] = 'Displays history of a customer'
 
         # Sorts commands alphabetically
         cmds = sorted(func)
@@ -62,6 +63,20 @@ def help(accountType, helpFunc = ''):
               'DESCRIPTION\n' +
               '     Print the user name associated with the current' +
               ' effective user ID.')
+
+    # history help
+    elif(helpFunc == 'history'):
+        print('HISTORY\n'+
+              '\n' +
+              'NAME\n' +
+              '     history - views history of a customer\n' +
+              'SYNOPSIS\n' +
+              '     history [USERID]\n' +
+              'DESCRIPTION\n' +
+              '     Views history of a customer\n' +
+              '     For user ID enter the short user ID (First 8)\n' +
+              'EXAMPLE\n' +
+              '     history c9575859')
 
     # clear help
     elif(helpFunc == 'clear'):
@@ -101,7 +116,7 @@ def help(accountType, helpFunc = ''):
               '     balance [VALUE TO ADD]\n' +
               'DESCRIPTION\n' +
               '     Submits a request to add a value to your account\n' +
-              '     The value entered after balance will be the\n' +
+              '     The value entered after balance will be the' +
               ' desired amount\n' +
               'EXAMPLE\n' +
               '     deposit 100')
@@ -118,7 +133,7 @@ def help(accountType, helpFunc = ''):
               'DESCRIPTION\n' +
               '     Submits a request to deduc a value from' +
               ' your account\n' +
-              '     The value entered after balance will be the\n' +
+              '     The value entered after balance will be the' +
               ' desired amount\n' +
               'EXAMPLE\n' +
               '     withdrawal 100')
