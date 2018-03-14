@@ -154,6 +154,21 @@ def help(accountType, helpFunc = ''):
               ' tellers, and assistants that can be accessed\n' +
               '     Prints all short userID (first 8 characters)')
 
+    elif(helpFunc == 'requests'):
+        print('REQUESTS\n'+
+              '\n' +
+              'NAME\n' +
+              '     requests - prints requests of a customer\n' +
+              'SYNOPSIS\n' +
+              '     requests [USERID]\n' +
+              'DESCRIPTION\n' +
+              '     Reviews requests of a specified customer' +
+              '     For userID input the first 8 characters of the' +
+              ' customer user ID\n' +
+              '     To get the user id, try using the "ls" command\n' +
+              'EXAMPLE\n' +
+              '     requests c9575859')
+
     return
 
 def balance(person):
