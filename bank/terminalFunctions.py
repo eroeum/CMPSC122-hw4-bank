@@ -100,10 +100,13 @@ def help(accountType, helpFunc = ''):
               'NAME\n' +
               '     balance - print effective balance of user\n' +
               'SYNOPSIS\n' +
-              '     balance\n' +
+              '     balance [OPTION]\n' +
               'DESCRIPTION\n' +
               '     Print the effective balance associated with the' +
-              ' current account.')
+              ' current account.\n' +
+              'OPTION\n' +
+              '     For non-customers, add the userID to view their +'
+              ' balance')
 
     # deposit help
     elif(helpFunc == 'deposit'):

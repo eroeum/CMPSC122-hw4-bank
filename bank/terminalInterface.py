@@ -135,7 +135,17 @@ def displayInterface():
 
                     # Balance function
                     elif(func[:7] == 'balance'):
-                        tf.balance(user)
+                        valList = func.split()
+                        if(len(valList) == 2 and \
+                           accountType != 'Customer'):
+                            indv = valList[1]
+                            for customer in customers:
+                                if(indv in customer[:8]):
+                                    indv = customers[customer]
+                                    tf.balance(indv)
+                                    break
+                        else:
+                            tf.balance(user)
 
                     # Deposit function
                     elif(func[:7] == 'deposit'):
