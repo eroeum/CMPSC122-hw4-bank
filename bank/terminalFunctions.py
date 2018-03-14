@@ -121,6 +121,25 @@ def help(accountType, helpFunc = ''):
               'EXAMPLE\n' +
               '     withdrawal 100')
 
+    elif(helpFunc == 'make'):
+        print('MAKE\n'+
+              '\n' +
+              'NAME\n' +
+              '     make - creates a bank teller or assistant' +
+              ' account\n'
+              'SYNOPSIS\n' +
+              '     make [ACCOUNT TYPE] [USER ID] [PASSCODE]\n' +
+              'DESCRIPTION\n' +
+              '     Creates a bank teller or assistant to help\n' +
+              '     The account type can either be "assistant" or' +
+              ' "teller"\n' +
+              '     The userid will be the user id before hashing' +
+              'for the assistant/bankteller to log in with\n' +
+              '     The passcode will be the password before hashing' +
+              'for the assistant/bankteller to log in with\n' +
+              'EXAMPLE\n' +
+              '     make assistant assistant1 greatPassword\n' +
+              '     make teller teller1 greatPassword')
 
     return
 
