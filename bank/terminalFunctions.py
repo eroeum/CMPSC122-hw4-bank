@@ -221,8 +221,11 @@ def balance(person):
     Shows balance in the account
     """
 
-    print('Account Balance: {}'.format(str(person.getValue())))
-    return
+    try:
+        print('Account Balance: {}'.format(str(person.getValue())))
+        return
+    except NotImplementedError:
+        print('Unavailable! For help, type "help"')
 
 def deposit(person, value_to_add):
     """
@@ -232,8 +235,11 @@ def deposit(person, value_to_add):
     :param value_to_add: Value to be added in funds
     """
 
-    person.requestDelta(value_to_add)
-    return
+    try:
+        person.requestDelta(value_to_add)
+        return
+    except NotImplementedError:
+        print('Unavailable! For help, type "help"')
 
 def withdrawal(person, value_to_deduct):
     """
@@ -243,8 +249,11 @@ def withdrawal(person, value_to_deduct):
     :param value_to_deduct: Value to be withdrawled in funds
     """
 
-    person.requestDelta(-1 * value_to_deduct)
-    return
+    try:
+        person.requestDelta(-1 * value_to_deduct)
+        return
+    except NotImplementedError:
+        print('Unavailable! For help, type "help"')
 
 def whoami(person):
     """
