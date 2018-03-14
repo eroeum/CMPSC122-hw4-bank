@@ -141,6 +141,19 @@ def help(accountType, helpFunc = ''):
               '     make assistant assistant1 greatPassword\n' +
               '     make teller teller1 greatPassword')
 
+    elif(helpFunc == 'ls'):
+        print('LS\n'+
+              '\n' +
+              'NAME\n' +
+              '     ls - print mutable customers, banktellers, and' +
+              ' assistants\n' +
+              'SYNOPSIS\n' +
+              '     ls\n' +
+              'DESCRIPTION\n' +
+              '     Use ls to view all available customers, bank' +
+              ' tellers, and assistants that can be accessed\n' +
+              '     Prints all short userID (first 8 characters)')
+
     return
 
 def balance(person):
