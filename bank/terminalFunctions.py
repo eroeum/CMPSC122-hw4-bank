@@ -90,6 +90,22 @@ def help(accountType, helpFunc = ''):
               '     Print the effective balance associated with the' +
               ' current account.')
 
+    elif(helpFunc == 'deposit'):
+        print('DEPOSIT\n'+
+              '\n' +
+              'NAME\n' +
+              '     deposit - submits a request to add value to' +
+              ' account\n'
+              'SYNOPSIS\n' +
+              '     balance [VALUE TO ADD]\n' +
+              'DESCRIPTION\n' +
+              '     Submits a request to add a value to your account\n' +
+              '     The value entered after balance will be the\n' +
+              ' desired amount\n' +
+              'EXAMPLE\n' +
+              '     deposit 100')
+
+
     return
 
 def balance(person):
