@@ -66,7 +66,7 @@ def help(accountType, helpFunc = ''):
               ' effective user ID.')
 
     elif(helpFunc == 'clear'):
-        print('clear\n'+
+        print('CLEAR\n'+
               '\n' +
               'NAME\n' +
               '     clear - clears the terminal screen\n' +
@@ -78,6 +78,17 @@ def help(accountType, helpFunc = ''):
               'OPTIONS\n' +
               '     -w: Clears screen if on a windows machine i.e.' +
               ' command prompt')
+
+    elif(helpFunc == 'balance'):
+        print('BALANCE\n'+
+              '\n' +
+              'NAME\n' +
+              '     balance - print effective balance of user\n' +
+              'SYNOPSIS\n' +
+              '     balance\n' +
+              'DESCRIPTION\n' +
+              '     Print the effective balance associated with the' +
+              ' current account.')
 
     return
 
