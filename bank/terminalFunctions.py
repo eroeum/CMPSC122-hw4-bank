@@ -12,31 +12,60 @@ def exit():
 
     return
 
-def help():
+def help(accountType, helpFunc = ''):
     """
-    Help menu for giving users all commands with short descritpion
+    Help menu for giving users all commands with short description
+
+    :type accountType: string
+    :param accountType: Type of account
+
+    :type helpFunc: string
+    :param helpFunc: Option functional to get more info
     """
 
-    # Not Completed
-    print('For more information on a specific command, ' + \
-          'type "Help" command-name')
+    if(helpFunc == ''):
+        print('For more information on a specific command, ' + \
+              'type "help" command-name')
 
-    # Dictionary of functions available
-    func = {}
-    func['balance'] = 'Displays balance in your account'
-    func['deposit'] = 'Deposits money into to your account'
-    func['withdrawal'] = 'Withdrawals money from your account'
-    func['whoami'] = 'Display your ID'
-    func['make'] = 'Creates a new account'
-    func['clear'] = 'Clears the screen'
-    func['ls'] = 'Displays all muatable accounts'
+        # Dictionary of functions available
+        func = {}
 
-    # Sorts commands alphabetically
-    cmds = sorted(func)
+        if(accountType in ['Customer', 'Bank Teller', \
+                           'Assistant', 'Manager']):
+            func['whoami'] = 'Display your ID'
+            func['clear'] = 'Clears the screen'
+        if(accountType in ['Customer']):
+            func['balance'] = 'Displays balance in your account'
+            func['deposit'] = 'Deposits money into to your account'
+            func['withdrawal'] = 'Withdrawals money from your account'
+        if(accountType in ['Bank Teller', 'Assistant', 'Manager']):
+            func['make'] = 'Creates a new account'
+            func['ls'] = 'Displays all muatable accounts'
+            func['requests'] = 'Displays the requests of a customer'
+            func['accept']  = 'Accepts a request of customer'
 
-    # Prints help commands
-    for cmd in cmds:
-        print('{}: {}'.format(cmd,func[cmd]))
+
+
+        # Sorts commands alphabetically
+        cmds = sorted(func)
+
+        # Prints help commands
+        for cmd in cmds:
+            print('{}: {}'.format(cmd,func[cmd]))
+
+    # whoami help
+    elif(helpFunc == 'whoami'):
+        print('WHOAMI\n'+
+              '\n' +
+              'NAME\n' +
+              '     whoami - print effective userid\n' +
+              'SYNOPSIS\n' +
+              '     whoami\n' +
+              'DESCRIPTION\n' +
+              '     Print the user name associated with the current' +
+              'effective user ID.')
+
+
     return
 
 def balance(person):
