@@ -160,7 +160,7 @@ def help(accountType, helpFunc = ''):
               'NAME\n' +
               '     requests - prints requests of a customer\n' +
               'SYNOPSIS\n' +
-              '     requests [USERID]\n' +
+              '     requests [USER ID]\n' +
               'DESCRIPTION\n' +
               '     Reviews requests of a specified customer' +
               '     For userID input the first 8 characters of the' +
@@ -168,6 +168,24 @@ def help(accountType, helpFunc = ''):
               '     To get the user id, try using the "ls" command\n' +
               'EXAMPLE\n' +
               '     requests c9575859')
+
+    elif(helpFunc == 'accept'):
+        print('ACCEPT\n'+
+              '\n' +
+              'NAME\n' +
+              '     accept - accepts a user request\n' +
+              'SYNOPSIS\n' +
+              '     request [USER ID] [REQUEST NUBMER]\n' +
+              'DESCRIPTION\n' +
+              '     Accepts a user request that they had submitted\n' +
+              '     For user ID input the first 8 characters of the' +
+              ' customer user ID\n' +
+              '     To get the user ID, try using the "ls" command\n' +
+              '     For the request number enter the request number\n' +
+              '     To get the request number, use the "REQUESTS" +
+              ' function and enter the number to the right of "#"\n'
+              'EXAMPLE\n' +
+              '     accept c9575859 23')
 
     return
 
