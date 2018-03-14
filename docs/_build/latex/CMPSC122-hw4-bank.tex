@@ -55,7 +55,7 @@
 
 
 \title{CMPSC122-hw4-bank Documentation}
-\date{Mar 13, 2018}
+\date{Mar 14, 2018}
 \release{}
 \author{Eric Roeum}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -68,30 +68,131 @@
 \sphinxtableofcontents
 \phantomsection\label{\detokenize{index::doc}}
 
+\section{Introduction}
+\label{\detokenize{intro:intro}}\label{\detokenize{intro::doc}}
+This document discusses how to use this program and how it operates
 
+\subsection{Setup}
+\label{\detokenize{intro:setup}}\label{\detokenize{intro::doc}}
+This program only requires the python standard library and must be at least version 3.6.4.  To develop any more documentation, sphinx must be installed.  On a linux machine perform the following to setup:
+\begin{enumerate}
+\item{apt-get update}
+\item{apt-get -y upgrade}
+\item{apt-get -y install build-essential python3-pip python3-dev}
+\item{pip install sphinx (Optional for documentation generation}
+\item{git clone https://github.com/eroeum/CMPSC122-hw4-bank.git}
+\end{enumerate}
+
+\subsection{Running the Program}
+\label{\detokenize{intro:running}}\label{\detokenize{intro::doc}}
+To run the program perform the following:
+\begin{enumerate}
+\item{Go to CMPSC122-hw4-bank directory}
+\item{Run the program by running \textbf{bank/core.py -t} (Note: the -t is to run the program in terminal)}
+\end{enumerate}
+An example of running in a Linux shell is below:
+\begin{enumerate}
+\item{cd CMPSC122-hw4-bank}
+\item{python3 bank/core.py -t}
+\end{enumerate}
+
+\newpage
+
+\section{Example}
+\label{\detokenize{intro:example}}\label{\detokenize{intro::doc}}
+To help go through the program, an example of its functionallity is given below.  Note that anything italicized is entered after each punctuation mark and anything after \# are notes.  Anything in "[]" should be also entered but the value depends after each run.  This can be used as a rudamentary systems acceptance test.
+\begin{itemize}
+\item{\# Make a Manger \& set-up bank}
+\item{:\textit{man}}
+\item{:\textit{pass}}
+\item{\# Make 3 Customers}
+\item{:\textit{new}}
+\item{:\textit{new}}
+\item{:\textit{cust1}}
+\item{:\textit{pass}}
+\item{:\textit{new}}
+\item{:\textit{new}}
+\item{:\textit{cust2}}
+\item{:\textit{pass}}
+\item{:\textit{new}}
+\item{:\textit{new}}
+\item{:\textit{cust3}}
+\item{:\textit{pass}}
+\item{\# Login as the manger}
+\item{:\textit{man}}
+\item{:\textit{pass}}
+\item{\# Make an assistant and bank teller}
+\item{>>\textit{make assi1 pass}}
+\item{>>\textit{make tell1 pass}}
+\item{>>\textit{exit}}
+\item{\# Login as a customer}
+\item{:\textit{cust1}}
+\item{:\textit{pass}}
+\item{\# Create some transactions}
+\item{>>\textit{balance}\# The balance should be 0}
+\item{>>\textit{deposit 100}}
+\item{>>\textit{withdrawal 40}}
+\item{>>\textit{deposit 10}}
+\item{>>\textit{balance}\# The balance should still be 0 until the transaction is approved}
+\item{>>\textit{exit}}
+\item{\# Login as a bankteller and approve a transaction}
+\item{:\textit{assi1}}
+\item{:\textit{pass}}
+\item{>>\textit{ls} \# A list of all the customers should be shown}
+\item{>>\textit{requests }[Cust1 userid] \# get the userid by copying the 8-character code that comes first in the ls feature.  This is the hashed user id for security purposes }
+\item{>>\textit{accept} [Cust1 user ID] \textit{1} \# Accepts the first customer's first transaction}
+\item{>>\textit{exit}}
+\item{\# Check that the transaction went through}
+\item{:\textit{cust1}}
+\item{:\textit{pass}}
+\item{>>\textit{balance} \# The balance should be 100 now}
+\item{>>\textit{exit}}
+\item{\# Exit out of the program}
+\item{:\textit{exit}}
+\item{:\textit{exit}}
+\end{itemize}
+This list goes over the fundamental functions of this program.  Please continue to explore by creating an account and typing "help" for a full list of description and things to do.  For more help, type "help" plus the function name.
+
+\newpage
+
+\section{Caveats \& Fundamentals}
+\label{\detokenize{intro:example}}\label{\detokenize{intro::doc}}
+The purpose of this program is to simulate a bank.  Of course, because of the level of programming that this was programmed with, the security measures are not industry-worthy and this bank does not, in any shape, accept any real monetary value and only deals with hypothetical values.  As a result, a user can deposit and withdrawal as much money as he/she wants with no penalty.  The users' balance may even drop below 0 to simulate debt, but because of the nature of this bank, there is no penalty for doing such.
+
+The fundamentals of the hierarchy is as follows:
+\begin{itemize}
+\item{Manager: Head of the bank, can do anything.  There is only one manager since this person/group should share the same account while assistants help the manager.  The only real addition that the manager has opposed to an assistant is creating assistants.}
+\item{Assistant: Second in command.  There can be as many assistants that the manager wants.  The assistant can create new bank tellers and do anything a bank teller can do.}
+\item{Bank Teller: Lowest administrative user.  The bank teller can only accept requests that a customer has submitted when completing a transaction.}
+\item{Customer: No real power in the bank.  Can only submit requests to complete transactions}
+\end{itemize}
+
+Additional caveats include that there was no consideration for loans or subaccounts or shared accounts or things of those nature.  Since this is a simply a simulation of a bank with no penalty, constructing a bank with these features requires investigation into penalty and economic theory to do so.  As a result, it may be a future work.  Further when running the program, a "-t" is needed because if a GUI implementation would be created, that would be the main way of running the program.  Lastly there was no consideration for malicious code insertion, since crypotgraphy is beyond our scope.
+
+The password authentication system relies on SHA512 hashing which may not be the best, but is still better than nothing since it allows a one-way authentication system that is blind for both the user and the bank administrators.
 
 \chapter{CMPSC122-hw4-bank}
-\label{\detokenize{modules:cmpsc122-hw4-bank}}\label{\detokenize{modules::doc}}\label{\detokenize{modules:welcome-to-cmpsc122-hw4-bank-s-documentation}}
+\label{\detokenize{modules:welcome-to-cmpsc122-hw4-bank-s-documentation}}\label{\detokenize{modules:cmpsc122-hw4-bank}}\label{\detokenize{modules::doc}}
 
-\section{sample package}
-\label{\detokenize{sample::doc}}\label{\detokenize{sample:sample-package}}
+\section{bank package}
+\label{\detokenize{bank:bank-package}}\label{\detokenize{bank::doc}}
 
 \subsection{Submodules}
-\label{\detokenize{sample:submodules}}
+\label{\detokenize{bank:submodules}}
 
-\subsection{sample.assistant module}
-\label{\detokenize{sample:module-sample.assistant}}\label{\detokenize{sample:sample-assistant-module}}\index{sample.assistant (module)}\index{Assistant (class in sample.assistant)}
+\subsection{bank.assistant module}
+\label{\detokenize{bank:module-bank.assistant}}\label{\detokenize{bank:bank-assistant-module}}\index{bank.assistant (module)}\index{Assistant (class in bank.assistant)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.assistant.Assistant}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{sample.assistant.}}\sphinxbfcode{\sphinxupquote{Assistant}}}{\emph{userID}, \emph{customers}, \emph{bankTellers}}{}
+\phantomsection\label{\detokenize{bank:bank.assistant.Assistant}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{bank.assistant.}}\sphinxbfcode{\sphinxupquote{Assistant}}}{\emph{userID}, \emph{customers}, \emph{bankTellers}}{}
 Bases: \sphinxcode{\sphinxupquote{bankTeller.BankTeller}}
 
 Represents a user with mid-level priveledges
 Users having these priveledges are usually bank tellers
-\index{createBankTeller() (sample.assistant.Assistant method)}
+\index{createBankTeller() (bank.assistant.Assistant method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.assistant.Assistant.createBankTeller}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{createBankTeller}}}{\emph{userID}, \emph{customers}}{}
+\phantomsection\label{\detokenize{bank:bank.assistant.Assistant.createBankTeller}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{createBankTeller}}}{\emph{userID}, \emph{customers}}{}
 Creates a Bank Teller under this account
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -110,10 +211,10 @@ Creates a Bank Teller under this account
 
 \end{fulllineitems}
 
-\index{viewBankTellers() (sample.assistant.Assistant method)}
+\index{viewBankTellers() (bank.assistant.Assistant method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.assistant.Assistant.viewBankTellers}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewBankTellers}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.assistant.Assistant.viewBankTellers}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewBankTellers}}}{}{}
 Returns the bank tellers under this account
 
 \end{fulllineitems}
@@ -123,24 +224,24 @@ Returns the bank tellers under this account
 
 
 
-\subsection{sample.bankTeller module}
-\label{\detokenize{sample:sample-bankteller-module}}\label{\detokenize{sample:module-sample.bankTeller}}\index{sample.bankTeller (module)}\index{BankTeller (class in sample.bankTeller)}
+\subsection{bank.bankTeller module}
+\label{\detokenize{bank:module-bank.bankTeller}}\label{\detokenize{bank:bank-bankteller-module}}\index{bank.bankTeller (module)}\index{BankTeller (class in bank.bankTeller)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.bankTeller.BankTeller}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{sample.bankTeller.}}\sphinxbfcode{\sphinxupquote{BankTeller}}}{\emph{userID}, \emph{customers}}{}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{bank.bankTeller.}}\sphinxbfcode{\sphinxupquote{BankTeller}}}{\emph{userID}, \emph{customers}}{}
 Bases: \sphinxcode{\sphinxupquote{customer.Customer}}
 
 Represents a user with mid-level priveledges
 Users having these priveledges are usually bank tellers
-\index{acceptRequest() (sample.bankTeller.BankTeller method)}
+\index{acceptRequest() (bank.bankTeller.BankTeller method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.bankTeller.BankTeller.acceptRequest}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{acceptRequest}}}{\emph{customer}, \emph{reqNum}}{}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.acceptRequest}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{acceptRequest}}}{\emph{customer}, \emph{reqNum}}{}
 Accepts a request for a customer
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{customer}} ({\hyperref[\detokenize{sample:sample.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} Customer with the request
+\sphinxstyleliteralstrong{\sphinxupquote{customer}} ({\hyperref[\detokenize{bank:bank.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} Customer with the request
 
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{reqNum}} (\sphinxstyleliteralemphasis{\sphinxupquote{int}}) \textendash{} Request number that wishes to be resolved
@@ -151,22 +252,80 @@ Accepts a request for a customer
 
 \end{fulllineitems}
 
-\index{viewCustomers() (sample.bankTeller.BankTeller method)}
+\index{addHistory() (bank.bankTeller.BankTeller method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.bankTeller.BankTeller.viewCustomers}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewCustomers}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.addHistory}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{addHistory}}}{}{}
+Bank tellers do no actually have any history
+All history is written in customers
+
+\end{fulllineitems}
+
+\index{getHistory() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.getHistory}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getHistory}}}{}{}
+Bank tellers do no actually have history
+All history is written in customers
+
+\end{fulllineitems}
+
+\index{getRequests() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.getRequests}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getRequests}}}{}{}
+Bank tellers do no actually have requests
+
+\end{fulllineitems}
+
+\index{getSubaccounts() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.getSubaccounts}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getSubaccounts}}}{}{}
+Bank tellers do no actually have a sub accounts
+
+\end{fulllineitems}
+
+\index{getValue() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.getValue}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getValue}}}{}{}
+Bank tellers do no actually have a value
+
+\end{fulllineitems}
+
+\index{removeRequest() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.removeRequest}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{removeRequest}}}{}{}
+Bank tellers do no actually have any requests
+
+\end{fulllineitems}
+
+\index{requestDelta() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.requestDelta}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{requestDelta}}}{}{}
+Bank tellers do no actually have a value
+
+\end{fulllineitems}
+
+\index{viewCustomers() (bank.bankTeller.BankTeller method)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.viewCustomers}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewCustomers}}}{}{}
 Returns the customers under this account
 
 \end{fulllineitems}
 
-\index{viewRequests() (sample.bankTeller.BankTeller method)}
+\index{viewRequests() (bank.bankTeller.BankTeller method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.bankTeller.BankTeller.viewRequests}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewRequests}}}{\emph{customer}}{}
+\phantomsection\label{\detokenize{bank:bank.bankTeller.BankTeller.viewRequests}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewRequests}}}{\emph{customer}}{}
 Retrieves the requests held within the customer
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
-\sphinxstyleliteralstrong{\sphinxupquote{customer}} ({\hyperref[\detokenize{sample:sample.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} Customer with requests
+\sphinxstyleliteralstrong{\sphinxupquote{customer}} ({\hyperref[\detokenize{bank:bank.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} Customer with requests
 
 \end{description}\end{quote}
 
@@ -177,11 +336,11 @@ Retrieves the requests held within the customer
 
 
 
-\subsection{sample.core module}
-\label{\detokenize{sample:sample-core-module}}\label{\detokenize{sample:module-sample.core}}\index{sample.core (module)}\index{main() (in module sample.core)}
+\subsection{bank.core module}
+\label{\detokenize{bank:bank-core-module}}\label{\detokenize{bank:module-bank.core}}\index{bank.core (module)}\index{main() (in module bank.core)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.core.main}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.core.}}\sphinxbfcode{\sphinxupquote{main}}}{\emph{arg}}{}
+\phantomsection\label{\detokenize{bank:bank.core.main}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.core.}}\sphinxbfcode{\sphinxupquote{main}}}{\emph{arg}}{}
 Runs the core of the program
 Integrates all other python scripts/modules
 Use the core.py to run the Bank python script
@@ -195,19 +354,19 @@ Use the core.py to run the Bank python script
 
 
 
-\subsection{sample.customer module}
-\label{\detokenize{sample:sample-customer-module}}\label{\detokenize{sample:module-sample.customer}}\index{sample.customer (module)}\index{Customer (class in sample.customer)}
+\subsection{bank.customer module}
+\label{\detokenize{bank:bank-customer-module}}\label{\detokenize{bank:module-bank.customer}}\index{bank.customer (module)}\index{Customer (class in bank.customer)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{sample.customer.}}\sphinxbfcode{\sphinxupquote{Customer}}}{\emph{value}, \emph{userID\_owner}, \emph{userID\_users={[}{]}}}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{bank.customer.}}\sphinxbfcode{\sphinxupquote{Customer}}}{\emph{value}, \emph{userID\_owner}, \emph{userID\_users={[}{]}}}{}
 Bases: \sphinxcode{\sphinxupquote{object}}
 
 Represents a user with low-level priveledges
 Users only having these priveledges are usually customers
-\index{addHistory() (sample.customer.Customer method)}
+\index{addHistory() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.addHistory}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{addHistory}}}{\emph{event}}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.addHistory}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{addHistory}}}{\emph{event}}{}
 Adds an event to the history
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -217,58 +376,58 @@ Adds an event to the history
 
 \end{fulllineitems}
 
-\index{getHistory() (sample.customer.Customer method)}
+\index{getHistory() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.getHistory}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getHistory}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.getHistory}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getHistory}}}{}{}
 Retrieves history of this account
 
 \end{fulllineitems}
 
-\index{getOwner() (sample.customer.Customer method)}
+\index{getOwner() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.getOwner}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getOwner}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.getOwner}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getOwner}}}{}{}
 Retrieves owner of the bank
 
 \end{fulllineitems}
 
-\index{getRequests() (sample.customer.Customer method)}
+\index{getRequests() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.getRequests}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getRequests}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.getRequests}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getRequests}}}{}{}
 Retrieves request of account
 
 \end{fulllineitems}
 
-\index{getSubaccounts() (sample.customer.Customer method)}
+\index{getSubaccounts() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.getSubaccounts}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getSubaccounts}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.getSubaccounts}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getSubaccounts}}}{}{}
 Retrives accounts owned by this account
 
 \end{fulllineitems}
 
-\index{getUsers() (sample.customer.Customer method)}
+\index{getUsers() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.getUsers}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getUsers}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.getUsers}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getUsers}}}{}{}
 Retrieves priveledged users of the bank
 
 \end{fulllineitems}
 
-\index{getValue() (sample.customer.Customer method)}
+\index{getValue() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.getValue}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getValue}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.getValue}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{getValue}}}{}{}
 Retrieves value held within bank
 
 \end{fulllineitems}
 
-\index{removeRequest() (sample.customer.Customer method)}
+\index{removeRequest() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.removeRequest}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{removeRequest}}}{\emph{reqNum}}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.removeRequest}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{removeRequest}}}{\emph{reqNum}}{}
 Removes request from request list
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -278,10 +437,10 @@ Removes request from request list
 
 \end{fulllineitems}
 
-\index{requestDelta() (sample.customer.Customer method)}
+\index{requestDelta() (bank.customer.Customer method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.customer.Customer.requestDelta}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{requestDelta}}}{\emph{delta}}{}
+\phantomsection\label{\detokenize{bank:bank.customer.Customer.requestDelta}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{requestDelta}}}{\emph{delta}}{}
 Rquests the withdrawl or deposit into customer’s account
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -296,19 +455,19 @@ Rquests the withdrawl or deposit into customer’s account
 
 
 
-\subsection{sample.manager module}
-\label{\detokenize{sample:sample-manager-module}}\label{\detokenize{sample:module-sample.manager}}\index{sample.manager (module)}\index{Manager (class in sample.manager)}
+\subsection{bank.manager module}
+\label{\detokenize{bank:module-bank.manager}}\label{\detokenize{bank:bank-manager-module}}\index{bank.manager (module)}\index{Manager (class in bank.manager)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.manager.Manager}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{sample.manager.}}\sphinxbfcode{\sphinxupquote{Manager}}}{\emph{userID}, \emph{customers}, \emph{bankTellers}, \emph{assistants}}{}
+\phantomsection\label{\detokenize{bank:bank.manager.Manager}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{bank.manager.}}\sphinxbfcode{\sphinxupquote{Manager}}}{\emph{userID}, \emph{customers}, \emph{bankTellers}, \emph{assistants}}{}
 Bases: \sphinxcode{\sphinxupquote{assistant.Assistant}}
 
 Represents a user with high-level priveledges
 Users having these priveledges are usually managers
-\index{createAssistant() (sample.manager.Manager method)}
+\index{createAssistant() (bank.manager.Manager method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.manager.Manager.createAssistant}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{createAssistant}}}{\emph{userID}, \emph{customers}, \emph{bankTellers}}{}
+\phantomsection\label{\detokenize{bank:bank.manager.Manager.createAssistant}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{createAssistant}}}{\emph{userID}, \emph{customers}, \emph{bankTellers}}{}
 Creates an assistant object
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -327,10 +486,10 @@ Creates an assistant object
 
 \end{fulllineitems}
 
-\index{viewAssistants() (sample.manager.Manager method)}
+\index{viewAssistants() (bank.manager.Manager method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.manager.Manager.viewAssistants}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewAssistants}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.manager.Manager.viewAssistants}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{viewAssistants}}}{}{}
 Returns the assistants under this class
 
 \end{fulllineitems}
@@ -340,16 +499,16 @@ Returns the assistants under this class
 
 
 
-\subsection{sample.passwordAuthentication module}
-\label{\detokenize{sample:sample-passwordauthentication-module}}\label{\detokenize{sample:module-sample.passwordAuthentication}}\index{sample.passwordAuthentication (module)}\index{Password (class in sample.passwordAuthentication)}
+\subsection{bank.passwordAuthentication module}
+\label{\detokenize{bank:module-bank.passwordAuthentication}}\label{\detokenize{bank:bank-passwordauthentication-module}}\index{bank.passwordAuthentication (module)}\index{Password (class in bank.passwordAuthentication)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.passwordAuthentication.Password}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{sample.passwordAuthentication.}}\sphinxbfcode{\sphinxupquote{Password}}}{\emph{approvedUsers}}{}
+\phantomsection\label{\detokenize{bank:bank.passwordAuthentication.Password}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{class }}\sphinxcode{\sphinxupquote{bank.passwordAuthentication.}}\sphinxbfcode{\sphinxupquote{Password}}}{\emph{approvedUsers}}{}
 Bases: \sphinxcode{\sphinxupquote{object}}
-\index{addAutheticatedUser() (sample.passwordAuthentication.Password method)}
+\index{addAutheticatedUser() (bank.passwordAuthentication.Password method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.passwordAuthentication.Password.addAutheticatedUser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{addAutheticatedUser}}}{\emph{userid}, \emph{password}}{}
+\phantomsection\label{\detokenize{bank:bank.passwordAuthentication.Password.addAutheticatedUser}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{addAutheticatedUser}}}{\emph{userid}, \emph{password}}{}
 Adds autheticated user using UUID and SHA512 password hashing
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -365,10 +524,10 @@ Adds autheticated user using UUID and SHA512 password hashing
 
 \end{fulllineitems}
 
-\index{authenticate\_password() (sample.passwordAuthentication.Password method)}
+\index{authenticate\_password() (bank.passwordAuthentication.Password method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.passwordAuthentication.Password.authenticate_password}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{authenticate\_password}}}{\emph{userid}, \emph{password}}{}
+\phantomsection\label{\detokenize{bank:bank.passwordAuthentication.Password.authenticate_password}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{authenticate\_password}}}{\emph{userid}, \emph{password}}{}
 Autheticates Passwords using UUID and SHA512 password hashing
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -384,10 +543,10 @@ Autheticates Passwords using UUID and SHA512 password hashing
 
 \end{fulllineitems}
 
-\index{hashUsername() (sample.passwordAuthentication.Password method)}
+\index{hashUsername() (bank.passwordAuthentication.Password method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.passwordAuthentication.Password.hashUsername}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{hashUsername}}}{\emph{userID}}{}
+\phantomsection\label{\detokenize{bank:bank.passwordAuthentication.Password.hashUsername}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{hashUsername}}}{\emph{userID}}{}
 Hashes provided username for hased user id
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -397,10 +556,10 @@ Hashes provided username for hased user id
 
 \end{fulllineitems}
 
-\index{readEncrypted() (sample.passwordAuthentication.Password method)}
+\index{readEncrypted() (bank.passwordAuthentication.Password method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.passwordAuthentication.Password.readEncrypted}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{readEncrypted}}}{\emph{filename}, \emph{dest='./'}}{}
+\phantomsection\label{\detokenize{bank:bank.passwordAuthentication.Password.readEncrypted}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{readEncrypted}}}{\emph{filename}, \emph{dest='./'}}{}
 Imports all usernames and passwords from a txt file
 File must be formatted using \_writeEncrypted function
 NOTE: All previous passwords will be deleted and replaced
@@ -418,10 +577,10 @@ NOTE: All previous passwords will be deleted and replaced
 
 \end{fulllineitems}
 
-\index{writeEncrypted() (sample.passwordAuthentication.Password method)}
+\index{writeEncrypted() (bank.passwordAuthentication.Password method)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.passwordAuthentication.Password.writeEncrypted}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{writeEncrypted}}}{\emph{filename}, \emph{dest='./'}}{}
+\phantomsection\label{\detokenize{bank:bank.passwordAuthentication.Password.writeEncrypted}}\pysiglinewithargsret{\sphinxbfcode{\sphinxupquote{writeEncrypted}}}{\emph{filename}, \emph{dest='./'}}{}
 Writes all usernames and passwords to a txt file
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -442,11 +601,11 @@ Writes all usernames and passwords to a txt file
 
 
 
-\subsection{sample.terminalFunctions module}
-\label{\detokenize{sample:sample-terminalfunctions-module}}\label{\detokenize{sample:module-sample.terminalFunctions}}\index{sample.terminalFunctions (module)}\index{acceptRequest() (in module sample.terminalFunctions)}
+\subsection{bank.terminalFunctions module}
+\label{\detokenize{bank:bank-terminalfunctions-module}}\label{\detokenize{bank:module-bank.terminalFunctions}}\index{bank.terminalFunctions (module)}\index{acceptRequest() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.acceptRequest}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{acceptRequest}}}{\emph{user}, \emph{customer}, \emph{reqNum}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.acceptRequest}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{acceptRequest}}}{\emph{user}, \emph{customer}, \emph{reqNum}}{}
 Accepts a customer’s request
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -465,24 +624,24 @@ Accepts a customer’s request
 
 \end{fulllineitems}
 
-\index{balance() (in module sample.terminalFunctions)}
+\index{balance() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.balance}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{balance}}}{\emph{person}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.balance}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{balance}}}{\emph{person}}{}
 Shows balance in the account
 
 \end{fulllineitems}
 
-\index{clear() (in module sample.terminalFunctions)}
+\index{clear() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.clear}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{clear}}}{\emph{platf}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.clear}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{clear}}}{\emph{platf}}{}
 \end{fulllineitems}
 
-\index{deposit() (in module sample.terminalFunctions)}
+\index{deposit() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.deposit}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{deposit}}}{\emph{person}, \emph{value\_to\_add}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.deposit}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{deposit}}}{\emph{person}, \emph{value\_to\_add}}{}
 Deposits value into the account
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -492,36 +651,28 @@ Deposits value into the account
 
 \end{fulllineitems}
 
-\index{exit() (in module sample.terminalFunctions)}
+\index{exit() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.exit}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{exit}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.exit}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{exit}}}{}{}
 Exits the program
 This is a “fake” function that only confirms exit
 Clears screen after exit
 
 \end{fulllineitems}
 
-\index{help() (in module sample.terminalFunctions)}
+\index{help() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.help}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{help}}}{}{}
-Help menu for giving users all commands with short descritpion
-
-\end{fulllineitems}
-
-\index{ls() (in module sample.terminalFunctions)}
-
-\begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.ls}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{ls}}}{\emph{accountType}, \emph{account}, \emph{customers}}{}
-Lists all accounts accessible
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.help}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{help}}}{\emph{accountType}, \emph{helpFunc=''}}{}
+Help menu for giving users all commands with short description
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{accountType}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type of account
+\sphinxstyleliteralstrong{\sphinxupquote{accountType}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Type of account
 
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{account}} ({\hyperref[\detokenize{sample:sample.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} The account that is being inspected
+\sphinxstyleliteralstrong{\sphinxupquote{helpFunc}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} Option functional to get more info
 
 \end{itemize}
 
@@ -529,15 +680,47 @@ Lists all accounts accessible
 
 \end{fulllineitems}
 
-\index{make() (in module sample.terminalFunctions)}
+\index{history() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.make}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{make}}}{\emph{genesis}, \emph{accountType}, \emph{userID}, \emph{users}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.history}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{history}}}{\emph{customer}}{}
+Prints the history of a customer
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode
+\sphinxstyleliteralstrong{\sphinxupquote{customer}} (\sphinxstyleliteralemphasis{\sphinxupquote{Class}}) \textendash{} customer with desired history
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{ls() (in module bank.terminalFunctions)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.ls}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{ls}}}{\emph{accountType}, \emph{account}, \emph{customers}}{}
+Lists all accounts accessible
+\begin{quote}\begin{description}
+\item[{Parameters}] \leavevmode\begin{itemize}
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{accountType}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type of account
+
+\item {} 
+\sphinxstyleliteralstrong{\sphinxupquote{account}} ({\hyperref[\detokenize{bank:bank.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} The account that is being inspected
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+\end{fulllineitems}
+
+\index{make() (in module bank.terminalFunctions)}
+
+\begin{fulllineitems}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.make}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{make}}}{\emph{genesis}, \emph{accountType}, \emph{userID}, \emph{users}}{}
 Create an account
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
 \item {} 
-\sphinxstyleliteralstrong{\sphinxupquote{genesis}} ({\hyperref[\detokenize{sample:sample.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} Original account
+\sphinxstyleliteralstrong{\sphinxupquote{genesis}} ({\hyperref[\detokenize{bank:bank.customer.Customer}]{\sphinxcrossref{\sphinxstyleliteralemphasis{\sphinxupquote{Customer}}}}}) \textendash{} Original account
 
 \item {} 
 \sphinxstyleliteralstrong{\sphinxupquote{accountType}} (\sphinxstyleliteralemphasis{\sphinxupquote{string}}) \textendash{} type of account
@@ -551,10 +734,10 @@ Create an account
 
 \end{fulllineitems}
 
-\index{requests() (in module sample.terminalFunctions)}
+\index{requests() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.requests}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{requests}}}{\emph{user}, \emph{customer}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.requests}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{requests}}}{\emph{user}, \emph{customer}}{}
 Lists all requests of the customer
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode\begin{itemize}
@@ -570,18 +753,18 @@ Lists all requests of the customer
 
 \end{fulllineitems}
 
-\index{whoami() (in module sample.terminalFunctions)}
+\index{whoami() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.whoami}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{whoami}}}{\emph{person}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.whoami}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{whoami}}}{\emph{person}}{}
 Return the owner’s ID
 
 \end{fulllineitems}
 
-\index{withdrawal() (in module sample.terminalFunctions)}
+\index{withdrawal() (in module bank.terminalFunctions)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalFunctions.withdrawal}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{withdrawal}}}{\emph{person}, \emph{value\_to\_deduct}}{}
+\phantomsection\label{\detokenize{bank:bank.terminalFunctions.withdrawal}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalFunctions.}}\sphinxbfcode{\sphinxupquote{withdrawal}}}{\emph{person}, \emph{value\_to\_deduct}}{}
 Withdrawals value from the account
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -593,11 +776,11 @@ Withdrawals value from the account
 
 
 
-\subsection{sample.terminalInterface module}
-\label{\detokenize{sample:module-sample.terminalInterface}}\label{\detokenize{sample:sample-terminalinterface-module}}\index{sample.terminalInterface (module)}\index{displayInterface() (in module sample.terminalInterface)}
+\subsection{bank.terminalInterface module}
+\label{\detokenize{bank:module-bank.terminalInterface}}\label{\detokenize{bank:bank-terminalinterface-module}}\index{bank.terminalInterface (module)}\index{displayInterface() (in module bank.terminalInterface)}
 
 \begin{fulllineitems}
-\phantomsection\label{\detokenize{sample:sample.terminalInterface.displayInterface}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{sample.terminalInterface.}}\sphinxbfcode{\sphinxupquote{displayInterface}}}{}{}
+\phantomsection\label{\detokenize{bank:bank.terminalInterface.displayInterface}}\pysiglinewithargsret{\sphinxcode{\sphinxupquote{bank.terminalInterface.}}\sphinxbfcode{\sphinxupquote{displayInterface}}}{}{}
 Terminal-Based banking application
 \begin{quote}\begin{description}
 \item[{Parameters}] \leavevmode
@@ -613,10 +796,10 @@ Class with all developed user-password authentication
 
 
 \subsection{Module contents}
-\label{\detokenize{sample:module-sample}}\label{\detokenize{sample:module-contents}}\index{sample (module)}
+\label{\detokenize{bank:module-contents}}\label{\detokenize{bank:module-bank}}\index{bank (module)}
 
 \section{tests package}
-\label{\detokenize{tests::doc}}\label{\detokenize{tests:tests-package}}
+\label{\detokenize{tests:tests-package}}\label{\detokenize{tests::doc}}
 
 \subsection{Module contents}
 \label{\detokenize{tests:module-tests}}\label{\detokenize{tests:module-contents}}\index{tests (module)}
@@ -638,16 +821,16 @@ Class with all developed user-password authentication
 \renewcommand{\indexname}{Python Module Index}
 \begin{sphinxtheindex}
 \def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
-\bigletter{s}
-\item {\sphinxstyleindexentry{sample}}\sphinxstyleindexpageref{sample:\detokenize{module-sample}}
-\item {\sphinxstyleindexentry{sample.assistant}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.assistant}}
-\item {\sphinxstyleindexentry{sample.bankTeller}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.bankTeller}}
-\item {\sphinxstyleindexentry{sample.core}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.core}}
-\item {\sphinxstyleindexentry{sample.customer}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.customer}}
-\item {\sphinxstyleindexentry{sample.manager}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.manager}}
-\item {\sphinxstyleindexentry{sample.passwordAuthentication}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.passwordAuthentication}}
-\item {\sphinxstyleindexentry{sample.terminalFunctions}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.terminalFunctions}}
-\item {\sphinxstyleindexentry{sample.terminalInterface}}\sphinxstyleindexpageref{sample:\detokenize{module-sample.terminalInterface}}
+\bigletter{b}
+\item {\sphinxstyleindexentry{bank}}\sphinxstyleindexpageref{bank:\detokenize{module-bank}}
+\item {\sphinxstyleindexentry{bank.assistant}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.assistant}}
+\item {\sphinxstyleindexentry{bank.bankTeller}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.bankTeller}}
+\item {\sphinxstyleindexentry{bank.core}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.core}}
+\item {\sphinxstyleindexentry{bank.customer}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.customer}}
+\item {\sphinxstyleindexentry{bank.manager}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.manager}}
+\item {\sphinxstyleindexentry{bank.passwordAuthentication}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.passwordAuthentication}}
+\item {\sphinxstyleindexentry{bank.terminalFunctions}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.terminalFunctions}}
+\item {\sphinxstyleindexentry{bank.terminalInterface}}\sphinxstyleindexpageref{bank:\detokenize{module-bank.terminalInterface}}
 \indexspace
 \bigletter{t}
 \item {\sphinxstyleindexentry{tests}}\sphinxstyleindexpageref{tests:\detokenize{module-tests}}

@@ -1,17 +1,17 @@
 \babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}CMPSC122-hw4-bank}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}sample package}{1}{section.1.1}
+\contentsline {section}{\numberline {1.1}bank package}{1}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Submodules}{1}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}sample.assistant module}{1}{subsection.1.1.2}
-\contentsline {subsection}{\numberline {1.1.3}sample.bankTeller module}{1}{subsection.1.1.3}
-\contentsline {subsection}{\numberline {1.1.4}sample.core module}{2}{subsection.1.1.4}
-\contentsline {subsection}{\numberline {1.1.5}sample.customer module}{2}{subsection.1.1.5}
-\contentsline {subsection}{\numberline {1.1.6}sample.manager module}{2}{subsection.1.1.6}
-\contentsline {subsection}{\numberline {1.1.7}sample.passwordAuthentication module}{3}{subsection.1.1.7}
-\contentsline {subsection}{\numberline {1.1.8}sample.terminalFunctions module}{3}{subsection.1.1.8}
-\contentsline {subsection}{\numberline {1.1.9}sample.terminalInterface module}{4}{subsection.1.1.9}
+\contentsline {subsection}{\numberline {1.1.2}bank.assistant module}{1}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}bank.bankTeller module}{1}{subsection.1.1.3}
+\contentsline {subsection}{\numberline {1.1.4}bank.core module}{2}{subsection.1.1.4}
+\contentsline {subsection}{\numberline {1.1.5}bank.customer module}{2}{subsection.1.1.5}
+\contentsline {subsection}{\numberline {1.1.6}bank.manager module}{3}{subsection.1.1.6}
+\contentsline {subsection}{\numberline {1.1.7}bank.passwordAuthentication module}{3}{subsection.1.1.7}
+\contentsline {subsection}{\numberline {1.1.8}bank.terminalFunctions module}{4}{subsection.1.1.8}
+\contentsline {subsection}{\numberline {1.1.9}bank.terminalInterface module}{5}{subsection.1.1.9}
 \contentsline {subsection}{\numberline {1.1.10}Module contents}{5}{subsection.1.1.10}
 \contentsline {section}{\numberline {1.2}tests package}{5}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Module contents}{5}{subsection.1.2.1}
 \contentsline {chapter}{\numberline {2}Indices and tables}{7}{chapter.2}
-\contentsline {chapter}{Python Module Index}{9}{section*.42}
+\contentsline {chapter}{Python Module Index}{9}{section*.50}
