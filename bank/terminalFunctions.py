@@ -44,8 +44,6 @@ def help(accountType, helpFunc = ''):
             func['requests'] = 'Displays the requests of a customer'
             func['accept']  = 'Accepts a request of customer'
 
-
-
         # Sorts commands alphabetically
         cmds = sorted(func)
 
@@ -65,6 +63,7 @@ def help(accountType, helpFunc = ''):
               '     Print the user name associated with the current' +
               ' effective user ID.')
 
+    # clear help
     elif(helpFunc == 'clear'):
         print('CLEAR\n'+
               '\n' +
@@ -79,6 +78,7 @@ def help(accountType, helpFunc = ''):
               '     -w: Clears screen if on a windows machine i.e.' +
               ' command prompt')
 
+    # balance help
     elif(helpFunc == 'balance'):
         print('BALANCE\n'+
               '\n' +
@@ -90,6 +90,7 @@ def help(accountType, helpFunc = ''):
               '     Print the effective balance associated with the' +
               ' current account.')
 
+    # deposit help
     elif(helpFunc == 'deposit'):
         print('DEPOSIT\n'+
               '\n' +
@@ -105,6 +106,7 @@ def help(accountType, helpFunc = ''):
               'EXAMPLE\n' +
               '     deposit 100')
 
+    # withdrawal help
     elif(helpFunc == 'withdrawal'):
         print('WITHDRAWAL\n'+
               '\n' +
@@ -121,6 +123,7 @@ def help(accountType, helpFunc = ''):
               'EXAMPLE\n' +
               '     withdrawal 100')
 
+    # make help
     elif(helpFunc == 'make'):
         print('MAKE\n'+
               '\n' +
@@ -141,6 +144,7 @@ def help(accountType, helpFunc = ''):
               '     make assistant assistant1 greatPassword\n' +
               '     make teller teller1 greatPassword')
 
+    # ls help
     elif(helpFunc == 'ls'):
         print('LS\n'+
               '\n' +
@@ -154,6 +158,7 @@ def help(accountType, helpFunc = ''):
               ' tellers, and assistants that can be accessed\n' +
               '     Prints all short userID (first 8 characters)')
 
+    # requests help
     elif(helpFunc == 'requests'):
         print('REQUESTS\n'+
               '\n' +
@@ -169,6 +174,7 @@ def help(accountType, helpFunc = ''):
               'EXAMPLE\n' +
               '     requests c9575859')
 
+    # accept help
     elif(helpFunc == 'accept'):
         print('ACCEPT\n'+
               '\n' +
