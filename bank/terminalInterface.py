@@ -124,7 +124,11 @@ def displayInterface():
 
                     # Help function
                     elif(func[:4] == 'help' or func[:4] == 'quit'):
-                        tf.help(accountType)
+                        valList = func.split()
+                        if(len(valList) == 1):
+                            tf.help(accountType)
+                        else:
+                            tf.help(accountType, valList[1])
 
                     elif(func[:6] == 'whoami'):
                         tf.whoami(user)

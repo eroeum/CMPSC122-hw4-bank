@@ -63,8 +63,21 @@ def help(accountType, helpFunc = ''):
               '     whoami\n' +
               'DESCRIPTION\n' +
               '     Print the user name associated with the current' +
-              'effective user ID.')
+              ' effective user ID.')
 
+    elif(helpFunc == 'clear'):
+        print('clear\n'+
+              '\n' +
+              'NAME\n' +
+              '     clear - clears the terminal screen\n' +
+              'SYNOPSIS\n' +
+              '     clear [OPTION]\n' +
+              'DESCRIPTION\n' +
+              '     Clears the entire terminal screen by envoking the' +
+              ' clear command.\n' +
+              'OPTIONS\n' +
+              '     -w: Clears screen if on a windows machine i.e.' +
+              ' command prompt')
 
     return
 
