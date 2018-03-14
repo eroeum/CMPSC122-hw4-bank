@@ -65,3 +65,61 @@ class BankTeller(Customer):
             return 1
         else:
             return 0
+
+    def getValue(self):
+        """
+        Bank tellers do no actually have a value
+        """
+
+        raise NotImplementedError
+
+    def getSubaccounts(self):
+        """
+        Bank tellers do no actually have a sub accounts
+        """
+
+        raise NotImplementedError
+
+    def getHistory(self):
+        """
+        Bank tellers do no actually have history
+        All history is written in customers
+        """
+
+        raise NotImplementedError
+
+    def getRequests(self):
+        """
+        Bank tellers do no actually have requests
+        """
+
+        raise NotImplementedError
+
+    def _deltaValue(self):
+        """
+        Bank tellers do no actually have a value
+        """
+
+        raise NotImplementedError
+
+    def requestDelta(self):
+        """
+        Bank tellers do no actually have a value
+        """
+
+        raise NotImplementedError
+
+    def removeRequest(self):
+        """
+        Bank tellers do no actually have any requests
+        """
+
+        raise NotImplementedError
+
+    def addHistory(self):
+        """
+        Bank tellers do no actually have any history
+        All history is written in customers
+        """
+
+        raise NotImplementedError
