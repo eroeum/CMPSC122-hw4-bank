@@ -48,153 +48,14 @@
 <div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-bank.assistant">
-<span id="bank-assistant-module"></span><h2>bank.assistant module<a class="headerlink" href="#module-bank.assistant" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="bank.assistant.Assistant">
-<em class="property">class </em><code class="descclassname">bank.assistant.</code><code class="descname">Assistant</code><span class="sig-paren">(</span><em>userID</em>, <em>customers</em>, <em>bankTellers</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/assistant.html#Assistant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.assistant.Assistant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">bankTeller.BankTeller</span></code></p>
-<p>Represents a user with mid-level priveledges
-Users having these priveledges are usually bank tellers</p>
-<dl class="method">
-<dt id="bank.assistant.Assistant.createBankTeller">
-<code class="descname">createBankTeller</code><span class="sig-paren">(</span><em>userID</em>, <em>customers</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/assistant.html#Assistant.createBankTeller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.assistant.Assistant.createBankTeller" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a Bank Teller under this account</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>userID</strong> (<em>string</em>) – the userID of the assistant</li>
-<li><strong>customers</strong> (<em>list</em>) – all customers that assitant can access</li>
-<li><strong>bankTellers</strong> (<em>list</em>) – all bank tellers that assistant can access</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.assistant.Assistant.viewBankTellers">
-<code class="descname">viewBankTellers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/assistant.html#Assistant.viewBankTellers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.assistant.Assistant.viewBankTellers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the bank tellers under this account</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="bank-assistant-module">
+<h2>bank.assistant module<a class="headerlink" href="#bank-assistant-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-bank.bankTeller">
-<span id="bank-bankteller-module"></span><h2>bank.bankTeller module<a class="headerlink" href="#module-bank.bankTeller" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="bank.bankTeller.BankTeller">
-<em class="property">class </em><code class="descclassname">bank.bankTeller.</code><code class="descname">BankTeller</code><span class="sig-paren">(</span><em>userID</em>, <em>customers</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">customer.Customer</span></code></p>
-<p>Represents a user with mid-level priveledges
-Users having these priveledges are usually bank tellers</p>
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.acceptRequest">
-<code class="descname">acceptRequest</code><span class="sig-paren">(</span><em>customer</em>, <em>reqNum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.acceptRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.acceptRequest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accepts a request for a customer</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>customer</strong> (<a class="reference internal" href="#bank.customer.Customer" title="bank.customer.Customer"><em>Customer</em></a>) – Customer with the request</li>
-<li><strong>reqNum</strong> (<em>int</em>) – Request number that wishes to be resolved</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.addHistory">
-<code class="descname">addHistory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.addHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.addHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have any history
-All history is written in customers</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.getHistory">
-<code class="descname">getHistory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.getHistory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.getHistory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have history
-All history is written in customers</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.getRequests">
-<code class="descname">getRequests</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.getRequests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.getRequests" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have requests</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.getSubaccounts">
-<code class="descname">getSubaccounts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.getSubaccounts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.getSubaccounts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have a sub accounts</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.getValue">
-<code class="descname">getValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.getValue"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.getValue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have a value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.removeRequest">
-<code class="descname">removeRequest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.removeRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.removeRequest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have any requests</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.requestDelta">
-<code class="descname">requestDelta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.requestDelta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.requestDelta" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bank tellers do no actually have a value</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.viewCustomers">
-<code class="descname">viewCustomers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.viewCustomers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.viewCustomers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the customers under this account</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.bankTeller.BankTeller.viewRequests">
-<code class="descname">viewRequests</code><span class="sig-paren">(</span><em>customer</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/bankTeller.html#BankTeller.viewRequests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.bankTeller.BankTeller.viewRequests" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves the requests held within the customer</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>customer</strong> (<a class="reference internal" href="#bank.customer.Customer" title="bank.customer.Customer"><em>Customer</em></a>) – Customer with requests</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="bank-bankteller-module">
+<h2>bank.bankTeller module<a class="headerlink" href="#bank-bankteller-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-bank.core">
-<span id="bank-core-module"></span><h2>bank.core module<a class="headerlink" href="#module-bank.core" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="bank.core.main">
-<code class="descclassname">bank.core.</code><code class="descname">main</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/core.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.core.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>Runs the core of the program
-Integrates all other python scripts/modules
-Use the core.py to run the Bank python script</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>arg</strong> (<em>list</em>) – list of arguments in terminal</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="bank-core-module">
+<h2>bank.core module<a class="headerlink" href="#bank-core-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-bank.customer">
 <span id="bank-customer-module"></span><h2>bank.customer module<a class="headerlink" href="#module-bank.customer" title="Permalink to this headline">¶</a></h2>
@@ -285,41 +146,8 @@ Users only having these priveledges are usually customers</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-bank.manager">
-<span id="bank-manager-module"></span><h2>bank.manager module<a class="headerlink" href="#module-bank.manager" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="bank.manager.Manager">
-<em class="property">class </em><code class="descclassname">bank.manager.</code><code class="descname">Manager</code><span class="sig-paren">(</span><em>userID</em>, <em>customers</em>, <em>bankTellers</em>, <em>assistants</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/manager.html#Manager"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.manager.Manager" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">assistant.Assistant</span></code></p>
-<p>Represents a user with high-level priveledges
-Users having these priveledges are usually managers</p>
-<dl class="method">
-<dt id="bank.manager.Manager.createAssistant">
-<code class="descname">createAssistant</code><span class="sig-paren">(</span><em>userID</em>, <em>customers</em>, <em>bankTellers</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/manager.html#Manager.createAssistant"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.manager.Manager.createAssistant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an assistant object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>userID</strong> (<em>string</em>) – the userID of the assistant</li>
-<li><strong>customers</strong> (<em>list</em>) – all customers that assistant can access</li>
-<li><strong>bankTellers</strong> (<em>list</em>) – all bank tellers that assistant can access</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="bank.manager.Manager.viewAssistants">
-<code class="descname">viewAssistants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/manager.html#Manager.viewAssistants"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.manager.Manager.viewAssistants" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the assistants under this class</p>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="bank-manager-module">
+<h2>bank.manager module<a class="headerlink" href="#bank-manager-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-bank.passwordAuthentication">
 <span id="bank-passwordauthentication-module"></span><h2>bank.passwordAuthentication module<a class="headerlink" href="#module-bank.passwordAuthentication" title="Permalink to this headline">¶</a></h2>
@@ -418,186 +246,11 @@ NOTE: All previous passwords will be deleted and replaced</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-bank.terminalFunctions">
-<span id="bank-terminalfunctions-module"></span><h2>bank.terminalFunctions module<a class="headerlink" href="#module-bank.terminalFunctions" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="bank.terminalFunctions.acceptRequest">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">acceptRequest</code><span class="sig-paren">(</span><em>user</em>, <em>customer</em>, <em>reqNum</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#acceptRequest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.acceptRequest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accepts a customer’s request</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>user</strong> (<em>class</em>) – The current user</li>
-<li><strong>customer</strong> (<em>customer</em>) – Customer that is being accepted</li>
-<li><strong>reqNum</strong> (<em>int</em>) – Request number correponding to the request</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.balance">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">balance</code><span class="sig-paren">(</span><em>person</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#balance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.balance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shows balance in the account</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.clear">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">clear</code><span class="sig-paren">(</span><em>platf</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.deposit">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">deposit</code><span class="sig-paren">(</span><em>person</em>, <em>value_to_add</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#deposit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.deposit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deposits value into the account</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value_to_add</strong> (<em>float</em>) – Value to be added in funds</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.exit">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">exit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#exit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.exit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Exits the program
-This is a “fake” function that only confirms exit
-Clears screen after exit</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.help">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">help</code><span class="sig-paren">(</span><em>accountType</em>, <em>helpFunc=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#help"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.help" title="Permalink to this definition">¶</a></dt>
-<dd><p>Help menu for giving users all commands with short description</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accountType</strong> (<em>string</em>) – Type of account</li>
-<li><strong>helpFunc</strong> (<em>string</em>) – Option functional to get more info</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.history">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">history</code><span class="sig-paren">(</span><em>customer</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#history"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.history" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prints the history of a customer</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>customer</strong> (<em>Class</em>) – customer with desired history</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.ls">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">ls</code><span class="sig-paren">(</span><em>accountType</em>, <em>account</em>, <em>customers</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#ls"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.ls" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lists all accounts accessible</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accountType</strong> (<em>string</em>) – type of account</li>
-<li><strong>account</strong> (<a class="reference internal" href="#bank.customer.Customer" title="bank.customer.Customer"><em>Customer</em></a>) – The account that is being inspected</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.make">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">make</code><span class="sig-paren">(</span><em>genesis</em>, <em>accountType</em>, <em>userID</em>, <em>users</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#make"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.make" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create an account</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>genesis</strong> (<a class="reference internal" href="#bank.customer.Customer" title="bank.customer.Customer"><em>Customer</em></a>) – Original account</li>
-<li><strong>accountType</strong> (<em>string</em>) – type of account</li>
-<li><strong>userID</strong> (<em>string</em>) – user id of the account</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.requests">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">requests</code><span class="sig-paren">(</span><em>user</em>, <em>customer</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#requests"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.requests" title="Permalink to this definition">¶</a></dt>
-<dd><p>Lists all requests of the customer</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>user</strong> (<em>class</em>) – The current user</li>
-<li><strong>customer</strong> (<em>customer</em>) – Customer that will be viewed</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.whoami">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">whoami</code><span class="sig-paren">(</span><em>person</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#whoami"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.whoami" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the owner’s ID</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="bank.terminalFunctions.withdrawal">
-<code class="descclassname">bank.terminalFunctions.</code><code class="descname">withdrawal</code><span class="sig-paren">(</span><em>person</em>, <em>value_to_deduct</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalFunctions.html#withdrawal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalFunctions.withdrawal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Withdrawals value from the account</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value_to_deduct</strong> (<em>float</em>) – Value to be withdrawled in funds</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="bank-terminalfunctions-module">
+<h2>bank.terminalFunctions module<a class="headerlink" href="#bank-terminalfunctions-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-bank.terminalInterface">
-<span id="bank-terminalinterface-module"></span><h2>bank.terminalInterface module<a class="headerlink" href="#module-bank.terminalInterface" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="bank.terminalInterface.displayInterface">
-<code class="descclassname">bank.terminalInterface.</code><code class="descname">displayInterface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/bank/terminalInterface.html#displayInterface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bank.terminalInterface.displayInterface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Terminal-Based banking application</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>customers</strong> (<em>dict</em>) – dictionary of all created customers</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Params users:</th><td class="field-body">Class with all developed user-password authentication</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+<div class="section" id="bank-terminalinterface-module">
+<h2>bank.terminalInterface module<a class="headerlink" href="#bank-terminalinterface-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-bank">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-bank" title="Permalink to this headline">¶</a></h2>
@@ -614,14 +267,14 @@ Clears screen after exit</p>
   <ul>
 <li><a class="reference internal" href="#">bank package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
-<li><a class="reference internal" href="#module-bank.assistant">bank.assistant module</a></li>
-<li><a class="reference internal" href="#module-bank.bankTeller">bank.bankTeller module</a></li>
-<li><a class="reference internal" href="#module-bank.core">bank.core module</a></li>
+<li><a class="reference internal" href="#bank-assistant-module">bank.assistant module</a></li>
+<li><a class="reference internal" href="#bank-bankteller-module">bank.bankTeller module</a></li>
+<li><a class="reference internal" href="#bank-core-module">bank.core module</a></li>
 <li><a class="reference internal" href="#module-bank.customer">bank.customer module</a></li>
-<li><a class="reference internal" href="#module-bank.manager">bank.manager module</a></li>
+<li><a class="reference internal" href="#bank-manager-module">bank.manager module</a></li>
 <li><a class="reference internal" href="#module-bank.passwordAuthentication">bank.passwordAuthentication module</a></li>
-<li><a class="reference internal" href="#module-bank.terminalFunctions">bank.terminalFunctions module</a></li>
-<li><a class="reference internal" href="#module-bank.terminalInterface">bank.terminalInterface module</a></li>
+<li><a class="reference internal" href="#bank-terminalfunctions-module">bank.terminalFunctions module</a></li>
+<li><a class="reference internal" href="#bank-terminalinterface-module">bank.terminalInterface module</a></li>
 <li><a class="reference internal" href="#module-bank">Module contents</a></li>
 </ul>
 </li>
